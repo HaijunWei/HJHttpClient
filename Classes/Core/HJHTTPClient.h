@@ -9,12 +9,13 @@
 #import "HJHTTPTask.h"
 #import "HJHTTPResponse.h"
 #import "HJHTTPRequestGroup.h"
-#import "HJHTTPResponseDecoder.h"
+#import "HJHTTPResponseDecoder+Protocol.h"
 @class HJHTTPClient;
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^HJHTTPClientSuccessBlock)(id rep);
+typedef void(^HJHTTPClientSingleSuccessBlock)(HJHTTPResponse *rep);
+typedef void(^HJHTTPClientSuccessBlock)(NSArray<HJHTTPResponse *> *reps);
 typedef void(^HJHTTPClientFailureBlock)(NSError *error);
 
 @protocol HJHTTPClientDelegate <NSObject>
@@ -43,19 +44,19 @@ typedef void(^HJHTTPClientFailureBlock)(NSError *error);
 /// 响应值解析器
 @property (nonatomic, strong) id<HJHTTPResponseDecoder> responseDecoder;
 
-+ (HJHTTPTask *)enqueue:(id)req
-                success:(HJHTTPClientSuccessBlock)success
++ (HJHTTPTask *)enqueue:(HJHTTPRequest *)req
+                success:(HJHTTPClientSingleSuccessBlock)success
                 failure:(HJHTTPClientFailureBlock)failure;
-
-+ (HJHTTPTask *)enqueueGroup:(void(^)(HJHTTPRequestGroup *group))block
+    
++ (HJHTTPTask *)enqueueGroup:(HJHTTPRequestGroup *)group
                      success:(HJHTTPClientSuccessBlock)success
                      failure:(HJHTTPClientFailureBlock)failure;
-
-- (HJHTTPTask *)enqueue:(id)req
-                success:(HJHTTPClientSuccessBlock)success
+    
+- (HJHTTPTask *)enqueue:(HJHTTPRequest *)req
+                success:(HJHTTPClientSingleSuccessBlock)success
                 failure:(HJHTTPClientFailureBlock)failure;
-
-- (HJHTTPTask *)enqueueGroup:(void(^)(HJHTTPRequestGroup *group))block
+    
+- (HJHTTPTask *)enqueueGroup:(HJHTTPRequestGroup *)group
                      success:(HJHTTPClientSuccessBlock)success
                      failure:(HJHTTPClientFailureBlock)failure;
 

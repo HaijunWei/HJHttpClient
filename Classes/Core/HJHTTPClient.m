@@ -43,38 +43,33 @@
 
 #pragma mark - 单例便利方法
 
-+ (HJHTTPTask *)enqueue:(id)req
-                success:(HJHTTPClientSuccessBlock)success
++ (HJHTTPTask *)enqueue:(HJHTTPRequest *)req
+                success:(HJHTTPClientSingleSuccessBlock)success
                 failure:(HJHTTPClientFailureBlock)failure {
     return [[self shared] enqueue:req success:success failure:failure];
 }
 
-+ (HJHTTPTask *)enqueueGroup:(void (^)(HJHTTPRequestGroup * _Nonnull))block
++ (HJHTTPTask *)enqueueGroup:(HJHTTPRequestGroup *)group
                      success:(HJHTTPClientSuccessBlock)success
                      failure:(HJHTTPClientFailureBlock)failure {
-    return [[self shared] enqueueGroup:block success:success failure:failure];
+    return [[self shared] enqueueGroup:group success:success failure:failure];
 }
 
 #pragma mark - 发起请求
 
-- (HJHTTPTask *)enqueue:(id)req
-                success:(HJHTTPClientSuccessBlock)success
+- (HJHTTPTask *)enqueue:(HJHTTPRequest *)req
+                success:(HJHTTPClientSingleSuccessBlock)success
                 failure:(HJHTTPClientFailureBlock)failure {
-    return [self enqueueGroup:^(HJHTTPRequestGroup * _Nonnull group) {
-        if ([req isKindOfClass:[NSArray class]]) { /* 如果是数组，添加数组到group */
-            NSArray *reqs = req;
-            for (id req in reqs) { [group add:req]; }
-        } else {
-            [group add:req];
-        }
-    } success:success failure:failure];
+    HJHTTPRequestGroup *group = [HJHTTPRequestGroup new];
+    [group add:req];
+    return [self enqueueGroup:group success:^(NSArray<HJHTTPResponse *> * _Nonnull reps) {
+        if (success) { success(reps.firstObject); }
+    } failure:failure];
 }
 
-- (HJHTTPTask *)enqueueGroup:(void (^)(HJHTTPRequestGroup * _Nonnull))block
+- (HJHTTPTask *)enqueueGroup:(HJHTTPRequestGroup *)group
                      success:(HJHTTPClientSuccessBlock)success
                      failure:(HJHTTPClientFailureBlock)failure {
-    HJHTTPRequestGroup *group = [HJHTTPRequestGroup new];
-    block(group);
     HJHTTPTask *httpTask = [HJHTTPTask new];
     httpTask.state = HJHTTPTaskStateNotRunning;
     [self enqueueRequests:group.requests repArray:nil task:httpTask success:success failure:failure];
@@ -84,6 +79,7 @@
         [weakSelf.tasks removeObject:task];
     };
     return httpTask;
+
 }
 
 #pragma mark - 核心方法
@@ -119,13 +115,7 @@
         }
         weakTask.state = HJHTTPTaskStateNotRunning;
         [weakTask removeFromContainer];
-        if (success) {
-            if (resultReps.count == 1) { /* 单个请求回调Response */
-                success(resultReps.firstObject);
-            } else { /* 多个请求回调数组 */
-                success(resultReps);
-            }
-        }
+        if (success) { success(resultReps); }
     } failure:^(NSError * _Nonnull error) {
         weakTask.state = HJHTTPTaskStateNotRunning;
         [weakTask removeFromContainer];

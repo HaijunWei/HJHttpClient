@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 响应值
 @property (nonatomic, strong) id data;
 /// 状态码
-@property (nonatomic, assign) NSInteger statusCode;
+@property (nonatomic, assign) NSInteger code;
 /// 响应消息
 @property (nonatomic, copy) NSString *message;
 /// 响应头

@@ -14,6 +14,16 @@
 
 @implementation HJHTTPRequestGroup
 
+#pragma mark - 便利方法
+
++ (instancetype)group:(void(^)(HJHTTPRequestGroup *g))block {
+    HJHTTPRequestGroup *group = [HJHTTPRequestGroup new];
+    block(group);
+    return group;
+}
+
+#pragma mark -
+
 - (instancetype)init {
     if (self = [super init]) {
         self.reqs = [NSMutableArray new];

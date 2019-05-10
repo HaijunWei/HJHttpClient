@@ -52,6 +52,7 @@
 @implementation HJHTTPTask (HJIndicator)
 
 - (void)attachHUDTo:(UIView *)view {
+    if (!view) { return; }
     HJHTTPActivityIndicator *indicator = [HJHTTPActivityIndicator new];
     indicator.hudView = view;
     [self addObserver:indicator isWeakify:NO];

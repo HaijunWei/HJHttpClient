@@ -17,7 +17,29 @@ extern NSInteger const HJHTTPResponseDecoderFailure;
 /* 正常状态响应码 */
 extern NSInteger const HJHTTPResponseDecoderNormalStatusCode;
 
+typedef NSString *HJHTTPResponseKey;
+
+extern HJHTTPResponseKey const HJHTTPResponseCodeKey;
+extern HJHTTPResponseKey const HJHTTPResponseDataKey;
+extern HJHTTPResponseKey const HJHTTPResponseMessageKey;
+
+
 @interface HJHTTPResponseDecoder : NSObject<HJHTTPResponseDecoder>
+
+/// 响应对象键值映射，@{HJHTTPResponseKey:xxx}
+@property (nonatomic, strong) NSDictionary *responseKeyMapping;
+
+#pragma mark - Helpers
+
+/**
+ 反序列化数据
+
+ @param cls object类型
+ @param path 解析路径
+ @param data 待处理数据
+ @return object
+ */
+- (id)deserializationWithResponseDataCls:(Class)cls deserializationPath:(NSString *)path data:(id)data;
 
 @end
 

@@ -14,6 +14,8 @@ typedef HJHTTPRequest *_Nonnull (^HJHTTPRequestLazyAddBlock)(NSArray<HJHTTPRespo
 
 @interface HJHTTPRequestGroup : NSObject
 
++ (instancetype)group:(void(^)(HJHTTPRequestGroup *g))block;
+
 - (void)add:(HJHTTPRequest *)req;
 - (void)lazyAdd:(HJHTTPRequestLazyAddBlock)block;
 

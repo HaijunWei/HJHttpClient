@@ -7,194 +7,199 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		537A1E58FB272F9695461F8E /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A81655567E29BF6AC73BCC98 /* libPods-Demo.a */; };
-		8457394522856BA000A8A443 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8457394422856BA000A8A443 /* AppDelegate.m */; };
-		8457394822856BA000A8A443 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8457394722856BA000A8A443 /* ViewController.m */; };
-		8457394B22856BA000A8A443 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8457394922856BA000A8A443 /* Main.storyboard */; };
-		8457394D22856BA100A8A443 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8457394C22856BA100A8A443 /* Assets.xcassets */; };
-		8457395022856BA100A8A443 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8457394E22856BA100A8A443 /* LaunchScreen.storyboard */; };
-		8457395322856BA100A8A443 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8457395222856BA100A8A443 /* main.m */; };
-		8457397322856BCC00A8A443 /* HJHTTPRequestFormFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8457395A22856BCC00A8A443 /* HJHTTPRequestFormFile.m */; };
-		8457397422856BCC00A8A443 /* HJHTTPActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8457395D22856BCC00A8A443 /* HJHTTPActivityIndicator.m */; };
-		8457397522856BCC00A8A443 /* HJHTTPRequestGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8457396122856BCC00A8A443 /* HJHTTPRequestGroup.m */; };
-		8457397622856BCC00A8A443 /* HJHTTPTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8457396322856BCC00A8A443 /* HJHTTPTask.m */; };
-		8457397722856BCC00A8A443 /* HJHTTPResponseDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8457396622856BCC00A8A443 /* HJHTTPResponseDecoder.m */; };
-		8457397822856BCC00A8A443 /* HJHTTPRequest+Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8457396722856BCC00A8A443 /* HJHTTPRequest+Decoder.m */; };
-		8457397922856BCC00A8A443 /* HJHTTPResponse+Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8457396922856BCC00A8A443 /* HJHTTPResponse+Decoder.m */; };
-		8457397A22856BCC00A8A443 /* HJHTTPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 8457396C22856BCC00A8A443 /* HJHTTPResponse.m */; };
-		8457397B22856BCC00A8A443 /* HJHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8457397022856BCC00A8A443 /* HJHTTPClient.m */; };
-		8457397C22856BCC00A8A443 /* HJHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8457397222856BCC00A8A443 /* HJHTTPRequest.m */; };
+		5CFCFE2AABD84785F7B34D9D /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9BB60FA39D873F14907F597 /* libPods-Demo.a */; };
+		841BA3622285C8C600C45FD1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA3612285C8C600C45FD1 /* AppDelegate.m */; };
+		841BA3652285C8C600C45FD1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA3642285C8C600C45FD1 /* ViewController.m */; };
+		841BA3682285C8C600C45FD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841BA3662285C8C600C45FD1 /* Main.storyboard */; };
+		841BA36A2285C8C600C45FD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841BA3692285C8C600C45FD1 /* Assets.xcassets */; };
+		841BA36D2285C8C600C45FD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841BA36B2285C8C600C45FD1 /* LaunchScreen.storyboard */; };
+		841BA3702285C8C600C45FD1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA36F2285C8C600C45FD1 /* main.m */; };
+		841BA3912285C91F00C45FD1 /* HJHTTPRequestFormFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA3782285C91F00C45FD1 /* HJHTTPRequestFormFile.m */; };
+		841BA3922285C91F00C45FD1 /* HJHTTPRequestGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA37C2285C91F00C45FD1 /* HJHTTPRequestGroup.m */; };
+		841BA3932285C91F00C45FD1 /* HJHTTPTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA37E2285C91F00C45FD1 /* HJHTTPTask.m */; };
+		841BA3942285C91F00C45FD1 /* HJHTTPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA3802285C91F00C45FD1 /* HJHTTPResponse.m */; };
+		841BA3952285C91F00C45FD1 /* HJHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA3842285C91F00C45FD1 /* HJHTTPClient.m */; };
+		841BA3962285C91F00C45FD1 /* HJHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA3862285C91F00C45FD1 /* HJHTTPRequest.m */; };
+		841BA3972285C91F00C45FD1 /* HJHTTPActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA3882285C91F00C45FD1 /* HJHTTPActivityIndicator.m */; };
+		841BA3982285C91F00C45FD1 /* HJHTTPResponseDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA38C2285C91F00C45FD1 /* HJHTTPResponseDecoder.m */; };
+		841BA3992285C91F00C45FD1 /* HJHTTPRequest+Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA38D2285C91F00C45FD1 /* HJHTTPRequest+Decoder.m */; };
+		841BA39A2285C91F00C45FD1 /* HJHTTPResponse+Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA38F2285C91F00C45FD1 /* HJHTTPResponse+Decoder.m */; };
+		8438D6982285CB1B00F3EC5A /* HJHTTPClient+Indicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8438D6972285CB1B00F3EC5A /* HJHTTPClient+Indicator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0DAC84C8C402C344175CE76A /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
-		8457394022856BA000A8A443 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8457394322856BA000A8A443 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		8457394422856BA000A8A443 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8457394622856BA000A8A443 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8457394722856BA000A8A443 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		8457394A22856BA000A8A443 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8457394C22856BA100A8A443 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8457394F22856BA100A8A443 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8457395122856BA100A8A443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8457395222856BA100A8A443 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8457395A22856BCC00A8A443 /* HJHTTPRequestFormFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPRequestFormFile.m; sourceTree = "<group>"; };
-		8457395B22856BCC00A8A443 /* HJHTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPResponse.h; sourceTree = "<group>"; };
-		8457395D22856BCC00A8A443 /* HJHTTPActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPActivityIndicator.m; sourceTree = "<group>"; };
-		8457395E22856BCC00A8A443 /* HJHTTPActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPActivityIndicator.h; sourceTree = "<group>"; };
-		8457395F22856BCC00A8A443 /* HJHTTPTask+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJHTTPTask+Private.h"; sourceTree = "<group>"; };
-		8457396022856BCC00A8A443 /* HJHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPRequest.h; sourceTree = "<group>"; };
-		8457396122856BCC00A8A443 /* HJHTTPRequestGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPRequestGroup.m; sourceTree = "<group>"; };
-		8457396222856BCC00A8A443 /* HJHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPClient.h; sourceTree = "<group>"; };
-		8457396322856BCC00A8A443 /* HJHTTPTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPTask.m; sourceTree = "<group>"; };
-		8457396522856BCC00A8A443 /* HJHTTPResponse+Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJHTTPResponse+Decoder.h"; sourceTree = "<group>"; };
-		8457396622856BCC00A8A443 /* HJHTTPResponseDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPResponseDecoder.m; sourceTree = "<group>"; };
-		8457396722856BCC00A8A443 /* HJHTTPRequest+Decoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HJHTTPRequest+Decoder.m"; sourceTree = "<group>"; };
-		8457396822856BCC00A8A443 /* HJHTTPResponseDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPResponseDecoder.h; sourceTree = "<group>"; };
-		8457396922856BCC00A8A443 /* HJHTTPResponse+Decoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HJHTTPResponse+Decoder.m"; sourceTree = "<group>"; };
-		8457396A22856BCC00A8A443 /* HJHTTPRequest+Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJHTTPRequest+Decoder.h"; sourceTree = "<group>"; };
-		8457396B22856BCC00A8A443 /* HJHTTPRequestGroup+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJHTTPRequestGroup+Private.h"; sourceTree = "<group>"; };
-		8457396C22856BCC00A8A443 /* HJHTTPResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPResponse.m; sourceTree = "<group>"; };
-		8457396D22856BCC00A8A443 /* HJHTTPRequestFormFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPRequestFormFile.h; sourceTree = "<group>"; };
-		8457396E22856BCC00A8A443 /* HJHTTPResponseDecoder+Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJHTTPResponseDecoder+Protocol.h"; sourceTree = "<group>"; };
-		8457396F22856BCC00A8A443 /* HJHTTPTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPTask.h; sourceTree = "<group>"; };
-		8457397022856BCC00A8A443 /* HJHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPClient.m; sourceTree = "<group>"; };
-		8457397122856BCC00A8A443 /* HJHTTPRequestGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPRequestGroup.h; sourceTree = "<group>"; };
-		8457397222856BCC00A8A443 /* HJHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPRequest.m; sourceTree = "<group>"; };
-		A81655567E29BF6AC73BCC98 /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAD7427CB629FE427C2E929A /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
+		065C29C1AAFF370CE502488B /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		841BA35D2285C8C600C45FD1 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		841BA3602285C8C600C45FD1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		841BA3612285C8C600C45FD1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		841BA3632285C8C600C45FD1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		841BA3642285C8C600C45FD1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		841BA3672285C8C600C45FD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		841BA3692285C8C600C45FD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		841BA36C2285C8C600C45FD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		841BA36E2285C8C600C45FD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		841BA36F2285C8C600C45FD1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		841BA3782285C91F00C45FD1 /* HJHTTPRequestFormFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPRequestFormFile.m; sourceTree = "<group>"; };
+		841BA3792285C91F00C45FD1 /* HJHTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPResponse.h; sourceTree = "<group>"; };
+		841BA37A2285C91F00C45FD1 /* HJHTTPTask+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJHTTPTask+Private.h"; sourceTree = "<group>"; };
+		841BA37B2285C91F00C45FD1 /* HJHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPRequest.h; sourceTree = "<group>"; };
+		841BA37C2285C91F00C45FD1 /* HJHTTPRequestGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPRequestGroup.m; sourceTree = "<group>"; };
+		841BA37D2285C91F00C45FD1 /* HJHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPClient.h; sourceTree = "<group>"; };
+		841BA37E2285C91F00C45FD1 /* HJHTTPTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPTask.m; sourceTree = "<group>"; };
+		841BA37F2285C91F00C45FD1 /* HJHTTPRequestGroup+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJHTTPRequestGroup+Private.h"; sourceTree = "<group>"; };
+		841BA3802285C91F00C45FD1 /* HJHTTPResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPResponse.m; sourceTree = "<group>"; };
+		841BA3812285C91F00C45FD1 /* HJHTTPRequestFormFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPRequestFormFile.h; sourceTree = "<group>"; };
+		841BA3822285C91F00C45FD1 /* HJHTTPResponseDecoder+Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJHTTPResponseDecoder+Protocol.h"; sourceTree = "<group>"; };
+		841BA3832285C91F00C45FD1 /* HJHTTPTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPTask.h; sourceTree = "<group>"; };
+		841BA3842285C91F00C45FD1 /* HJHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPClient.m; sourceTree = "<group>"; };
+		841BA3852285C91F00C45FD1 /* HJHTTPRequestGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPRequestGroup.h; sourceTree = "<group>"; };
+		841BA3862285C91F00C45FD1 /* HJHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPRequest.m; sourceTree = "<group>"; };
+		841BA3882285C91F00C45FD1 /* HJHTTPActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPActivityIndicator.m; sourceTree = "<group>"; };
+		841BA3892285C91F00C45FD1 /* HJHTTPActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPActivityIndicator.h; sourceTree = "<group>"; };
+		841BA38B2285C91F00C45FD1 /* HJHTTPResponse+Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJHTTPResponse+Decoder.h"; sourceTree = "<group>"; };
+		841BA38C2285C91F00C45FD1 /* HJHTTPResponseDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPResponseDecoder.m; sourceTree = "<group>"; };
+		841BA38D2285C91F00C45FD1 /* HJHTTPRequest+Decoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HJHTTPRequest+Decoder.m"; sourceTree = "<group>"; };
+		841BA38E2285C91F00C45FD1 /* HJHTTPResponseDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPResponseDecoder.h; sourceTree = "<group>"; };
+		841BA38F2285C91F00C45FD1 /* HJHTTPResponse+Decoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HJHTTPResponse+Decoder.m"; sourceTree = "<group>"; };
+		841BA3902285C91F00C45FD1 /* HJHTTPRequest+Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJHTTPRequest+Decoder.h"; sourceTree = "<group>"; };
+		8438D6962285CB1B00F3EC5A /* HJHTTPClient+Indicator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HJHTTPClient+Indicator.h"; sourceTree = "<group>"; };
+		8438D6972285CB1B00F3EC5A /* HJHTTPClient+Indicator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HJHTTPClient+Indicator.m"; sourceTree = "<group>"; };
+		AACAC4ADAB3749E2A2EB7F2A /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
+		E9BB60FA39D873F14907F597 /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8457393D22856BA000A8A443 /* Frameworks */ = {
+		841BA35A2285C8C600C45FD1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				537A1E58FB272F9695461F8E /* libPods-Demo.a in Frameworks */,
+				5CFCFE2AABD84785F7B34D9D /* libPods-Demo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5D5FB979F65E8B45DBCA42CE /* Frameworks */ = {
+		06C396DF9F273BDBF12997CA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A81655567E29BF6AC73BCC98 /* libPods-Demo.a */,
+				065C29C1AAFF370CE502488B /* Pods-Demo.debug.xcconfig */,
+				AACAC4ADAB3749E2A2EB7F2A /* Pods-Demo.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		8457393722856BA000A8A443 = {
+		841BA3542285C8C600C45FD1 = {
 			isa = PBXGroup;
 			children = (
-				8457394222856BA000A8A443 /* Demo */,
-				8457394122856BA000A8A443 /* Products */,
-				B702921D6048EB81D475EF55 /* Pods */,
-				5D5FB979F65E8B45DBCA42CE /* Frameworks */,
+				841BA35F2285C8C600C45FD1 /* Demo */,
+				841BA35E2285C8C600C45FD1 /* Products */,
+				06C396DF9F273BDBF12997CA /* Pods */,
+				99C4F675CB0CF7E240098B22 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		8457394122856BA000A8A443 /* Products */ = {
+		841BA35E2285C8C600C45FD1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8457394022856BA000A8A443 /* Demo.app */,
+				841BA35D2285C8C600C45FD1 /* Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8457394222856BA000A8A443 /* Demo */ = {
+		841BA35F2285C8C600C45FD1 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				8457395922856BCC00A8A443 /* Classes */,
-				8457394322856BA000A8A443 /* AppDelegate.h */,
-				8457394422856BA000A8A443 /* AppDelegate.m */,
-				8457394622856BA000A8A443 /* ViewController.h */,
-				8457394722856BA000A8A443 /* ViewController.m */,
-				8457394922856BA000A8A443 /* Main.storyboard */,
-				8457394C22856BA100A8A443 /* Assets.xcassets */,
-				8457394E22856BA100A8A443 /* LaunchScreen.storyboard */,
-				8457395122856BA100A8A443 /* Info.plist */,
-				8457395222856BA100A8A443 /* main.m */,
+				841BA3762285C91F00C45FD1 /* Classes */,
+				841BA3602285C8C600C45FD1 /* AppDelegate.h */,
+				841BA3612285C8C600C45FD1 /* AppDelegate.m */,
+				841BA3632285C8C600C45FD1 /* ViewController.h */,
+				841BA3642285C8C600C45FD1 /* ViewController.m */,
+				841BA3662285C8C600C45FD1 /* Main.storyboard */,
+				841BA3692285C8C600C45FD1 /* Assets.xcassets */,
+				841BA36B2285C8C600C45FD1 /* LaunchScreen.storyboard */,
+				841BA36E2285C8C600C45FD1 /* Info.plist */,
+				841BA36F2285C8C600C45FD1 /* main.m */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
 		};
-		8457395922856BCC00A8A443 /* Classes */ = {
+		841BA3762285C91F00C45FD1 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				8457397D22856CDD00A8A443 /* Core */,
-				8457396422856BCC00A8A443 /* Decoder */,
-				8457395C22856BCC00A8A443 /* Indicator */,
+				841BA3772285C91F00C45FD1 /* Core */,
+				841BA3872285C91F00C45FD1 /* Indicator */,
+				841BA38A2285C91F00C45FD1 /* Decoder */,
 			);
 			name = Classes;
 			path = ../../Classes;
 			sourceTree = "<group>";
 		};
-		8457395C22856BCC00A8A443 /* Indicator */ = {
+		841BA3772285C91F00C45FD1 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				8457395E22856BCC00A8A443 /* HJHTTPActivityIndicator.h */,
-				8457395D22856BCC00A8A443 /* HJHTTPActivityIndicator.m */,
-			);
-			path = Indicator;
-			sourceTree = "<group>";
-		};
-		8457396422856BCC00A8A443 /* Decoder */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Decoder;
-			sourceTree = "<group>";
-		};
-		8457397D22856CDD00A8A443 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				8457396222856BCC00A8A443 /* HJHTTPClient.h */,
-				8457397022856BCC00A8A443 /* HJHTTPClient.m */,
-				8457396022856BCC00A8A443 /* HJHTTPRequest.h */,
-				8457397222856BCC00A8A443 /* HJHTTPRequest.m */,
-				8457396A22856BCC00A8A443 /* HJHTTPRequest+Decoder.h */,
-				8457396722856BCC00A8A443 /* HJHTTPRequest+Decoder.m */,
-				8457396D22856BCC00A8A443 /* HJHTTPRequestFormFile.h */,
-				8457395A22856BCC00A8A443 /* HJHTTPRequestFormFile.m */,
-				8457397122856BCC00A8A443 /* HJHTTPRequestGroup.h */,
-				8457396122856BCC00A8A443 /* HJHTTPRequestGroup.m */,
-				8457396B22856BCC00A8A443 /* HJHTTPRequestGroup+Private.h */,
-				8457395B22856BCC00A8A443 /* HJHTTPResponse.h */,
-				8457396C22856BCC00A8A443 /* HJHTTPResponse.m */,
-				8457396522856BCC00A8A443 /* HJHTTPResponse+Decoder.h */,
-				8457396922856BCC00A8A443 /* HJHTTPResponse+Decoder.m */,
-				8457396822856BCC00A8A443 /* HJHTTPResponseDecoder.h */,
-				8457396622856BCC00A8A443 /* HJHTTPResponseDecoder.m */,
-				8457396E22856BCC00A8A443 /* HJHTTPResponseDecoder+Protocol.h */,
-				8457396F22856BCC00A8A443 /* HJHTTPTask.h */,
-				8457396322856BCC00A8A443 /* HJHTTPTask.m */,
-				8457395F22856BCC00A8A443 /* HJHTTPTask+Private.h */,
+				841BA37D2285C91F00C45FD1 /* HJHTTPClient.h */,
+				841BA3842285C91F00C45FD1 /* HJHTTPClient.m */,
+				841BA37B2285C91F00C45FD1 /* HJHTTPRequest.h */,
+				841BA3862285C91F00C45FD1 /* HJHTTPRequest.m */,
+				841BA3812285C91F00C45FD1 /* HJHTTPRequestFormFile.h */,
+				841BA3782285C91F00C45FD1 /* HJHTTPRequestFormFile.m */,
+				841BA3852285C91F00C45FD1 /* HJHTTPRequestGroup.h */,
+				841BA37C2285C91F00C45FD1 /* HJHTTPRequestGroup.m */,
+				841BA37F2285C91F00C45FD1 /* HJHTTPRequestGroup+Private.h */,
+				841BA3792285C91F00C45FD1 /* HJHTTPResponse.h */,
+				841BA3802285C91F00C45FD1 /* HJHTTPResponse.m */,
+				841BA3822285C91F00C45FD1 /* HJHTTPResponseDecoder+Protocol.h */,
+				841BA3832285C91F00C45FD1 /* HJHTTPTask.h */,
+				841BA37E2285C91F00C45FD1 /* HJHTTPTask.m */,
+				841BA37A2285C91F00C45FD1 /* HJHTTPTask+Private.h */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-		B702921D6048EB81D475EF55 /* Pods */ = {
+		841BA3872285C91F00C45FD1 /* Indicator */ = {
 			isa = PBXGroup;
 			children = (
-				0DAC84C8C402C344175CE76A /* Pods-Demo.debug.xcconfig */,
-				FAD7427CB629FE427C2E929A /* Pods-Demo.release.xcconfig */,
+				841BA3892285C91F00C45FD1 /* HJHTTPActivityIndicator.h */,
+				841BA3882285C91F00C45FD1 /* HJHTTPActivityIndicator.m */,
+				8438D6962285CB1B00F3EC5A /* HJHTTPClient+Indicator.h */,
+				8438D6972285CB1B00F3EC5A /* HJHTTPClient+Indicator.m */,
 			);
-			path = Pods;
+			path = Indicator;
+			sourceTree = "<group>";
+		};
+		841BA38A2285C91F00C45FD1 /* Decoder */ = {
+			isa = PBXGroup;
+			children = (
+				841BA3902285C91F00C45FD1 /* HJHTTPRequest+Decoder.h */,
+				841BA38D2285C91F00C45FD1 /* HJHTTPRequest+Decoder.m */,
+				841BA38B2285C91F00C45FD1 /* HJHTTPResponse+Decoder.h */,
+				841BA38F2285C91F00C45FD1 /* HJHTTPResponse+Decoder.m */,
+				841BA38E2285C91F00C45FD1 /* HJHTTPResponseDecoder.h */,
+				841BA38C2285C91F00C45FD1 /* HJHTTPResponseDecoder.m */,
+			);
+			path = Decoder;
+			sourceTree = "<group>";
+		};
+		99C4F675CB0CF7E240098B22 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E9BB60FA39D873F14907F597 /* libPods-Demo.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8457393F22856BA000A8A443 /* Demo */ = {
+		841BA35C2285C8C600C45FD1 /* Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8457395622856BA100A8A443 /* Build configuration list for PBXNativeTarget "Demo" */;
+			buildConfigurationList = 841BA3732285C8C600C45FD1 /* Build configuration list for PBXNativeTarget "Demo" */;
 			buildPhases = (
-				A57B076BF96336748883361A /* [CP] Check Pods Manifest.lock */,
-				8457393C22856BA000A8A443 /* Sources */,
-				8457393D22856BA000A8A443 /* Frameworks */,
-				8457393E22856BA000A8A443 /* Resources */,
+				9282AA2DFEA1DD3D1ED822CF /* [CP] Check Pods Manifest.lock */,
+				841BA3592285C8C600C45FD1 /* Sources */,
+				841BA35A2285C8C600C45FD1 /* Frameworks */,
+				841BA35B2285C8C600C45FD1 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -202,24 +207,24 @@
 			);
 			name = Demo;
 			productName = Demo;
-			productReference = 8457394022856BA000A8A443 /* Demo.app */;
+			productReference = 841BA35D2285C8C600C45FD1 /* Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		8457393822856BA000A8A443 /* Project object */ = {
+		841BA3552285C8C600C45FD1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Haijun;
 				TargetAttributes = {
-					8457393F22856BA000A8A443 = {
-						CreatedOnToolsVersion = 10.2;
+					841BA35C2285C8C600C45FD1 = {
+						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
 			};
-			buildConfigurationList = 8457393B22856BA000A8A443 /* Build configuration list for PBXProject "Demo" */;
+			buildConfigurationList = 841BA3582285C8C600C45FD1 /* Build configuration list for PBXProject "Demo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -227,31 +232,31 @@
 				en,
 				Base,
 			);
-			mainGroup = 8457393722856BA000A8A443;
-			productRefGroup = 8457394122856BA000A8A443 /* Products */;
+			mainGroup = 841BA3542285C8C600C45FD1;
+			productRefGroup = 841BA35E2285C8C600C45FD1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8457393F22856BA000A8A443 /* Demo */,
+				841BA35C2285C8C600C45FD1 /* Demo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8457393E22856BA000A8A443 /* Resources */ = {
+		841BA35B2285C8C600C45FD1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8457395022856BA100A8A443 /* LaunchScreen.storyboard in Resources */,
-				8457394D22856BA100A8A443 /* Assets.xcassets in Resources */,
-				8457394B22856BA000A8A443 /* Main.storyboard in Resources */,
+				841BA36D2285C8C600C45FD1 /* LaunchScreen.storyboard in Resources */,
+				841BA36A2285C8C600C45FD1 /* Assets.xcassets in Resources */,
+				841BA3682285C8C600C45FD1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A57B076BF96336748883361A /* [CP] Check Pods Manifest.lock */ = {
+		9282AA2DFEA1DD3D1ED822CF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -276,41 +281,42 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8457393C22856BA000A8A443 /* Sources */ = {
+		841BA3592285C8C600C45FD1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8457394822856BA000A8A443 /* ViewController.m in Sources */,
-				8457397722856BCC00A8A443 /* HJHTTPResponseDecoder.m in Sources */,
-				8457397B22856BCC00A8A443 /* HJHTTPClient.m in Sources */,
-				8457397322856BCC00A8A443 /* HJHTTPRequestFormFile.m in Sources */,
-				8457397922856BCC00A8A443 /* HJHTTPResponse+Decoder.m in Sources */,
-				8457395322856BA100A8A443 /* main.m in Sources */,
-				8457397A22856BCC00A8A443 /* HJHTTPResponse.m in Sources */,
-				8457397522856BCC00A8A443 /* HJHTTPRequestGroup.m in Sources */,
-				8457397622856BCC00A8A443 /* HJHTTPTask.m in Sources */,
-				8457397422856BCC00A8A443 /* HJHTTPActivityIndicator.m in Sources */,
-				8457397822856BCC00A8A443 /* HJHTTPRequest+Decoder.m in Sources */,
-				8457394522856BA000A8A443 /* AppDelegate.m in Sources */,
-				8457397C22856BCC00A8A443 /* HJHTTPRequest.m in Sources */,
+				841BA3932285C91F00C45FD1 /* HJHTTPTask.m in Sources */,
+				841BA3652285C8C600C45FD1 /* ViewController.m in Sources */,
+				841BA3952285C91F00C45FD1 /* HJHTTPClient.m in Sources */,
+				841BA3922285C91F00C45FD1 /* HJHTTPRequestGroup.m in Sources */,
+				8438D6982285CB1B00F3EC5A /* HJHTTPClient+Indicator.m in Sources */,
+				841BA3912285C91F00C45FD1 /* HJHTTPRequestFormFile.m in Sources */,
+				841BA3942285C91F00C45FD1 /* HJHTTPResponse.m in Sources */,
+				841BA3702285C8C600C45FD1 /* main.m in Sources */,
+				841BA3962285C91F00C45FD1 /* HJHTTPRequest.m in Sources */,
+				841BA3972285C91F00C45FD1 /* HJHTTPActivityIndicator.m in Sources */,
+				841BA3982285C91F00C45FD1 /* HJHTTPResponseDecoder.m in Sources */,
+				841BA3992285C91F00C45FD1 /* HJHTTPRequest+Decoder.m in Sources */,
+				841BA3622285C8C600C45FD1 /* AppDelegate.m in Sources */,
+				841BA39A2285C91F00C45FD1 /* HJHTTPResponse+Decoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8457394922856BA000A8A443 /* Main.storyboard */ = {
+		841BA3662285C8C600C45FD1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8457394A22856BA000A8A443 /* Base */,
+				841BA3672285C8C600C45FD1 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		8457394E22856BA100A8A443 /* LaunchScreen.storyboard */ = {
+		841BA36B2285C8C600C45FD1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8457394F22856BA100A8A443 /* Base */,
+				841BA36C2285C8C600C45FD1 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -318,7 +324,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		8457395422856BA100A8A443 /* Debug */ = {
+		841BA3712285C8C600C45FD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -377,7 +383,7 @@
 			};
 			name = Debug;
 		};
-		8457395522856BA100A8A443 /* Release */ = {
+		841BA3722285C8C600C45FD1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -430,9 +436,9 @@
 			};
 			name = Release;
 		};
-		8457395722856BA100A8A443 /* Debug */ = {
+		841BA3742285C8C600C45FD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0DAC84C8C402C344175CE76A /* Pods-Demo.debug.xcconfig */;
+			baseConfigurationReference = 065C29C1AAFF370CE502488B /* Pods-Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -447,9 +453,9 @@
 			};
 			name = Debug;
 		};
-		8457395822856BA100A8A443 /* Release */ = {
+		841BA3752285C8C600C45FD1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FAD7427CB629FE427C2E929A /* Pods-Demo.release.xcconfig */;
+			baseConfigurationReference = AACAC4ADAB3749E2A2EB7F2A /* Pods-Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -467,25 +473,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8457393B22856BA000A8A443 /* Build configuration list for PBXProject "Demo" */ = {
+		841BA3582285C8C600C45FD1 /* Build configuration list for PBXProject "Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8457395422856BA100A8A443 /* Debug */,
-				8457395522856BA100A8A443 /* Release */,
+				841BA3712285C8C600C45FD1 /* Debug */,
+				841BA3722285C8C600C45FD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8457395622856BA100A8A443 /* Build configuration list for PBXNativeTarget "Demo" */ = {
+		841BA3732285C8C600C45FD1 /* Build configuration list for PBXNativeTarget "Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8457395722856BA100A8A443 /* Debug */,
-				8457395822856BA100A8A443 /* Release */,
+				841BA3742285C8C600C45FD1 /* Debug */,
+				841BA3752285C8C600C45FD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 8457393822856BA000A8A443 /* Project object */;
+	rootObject = 841BA3552285C8C600C45FD1 /* Project object */;
 }

@@ -12,21 +12,25 @@ NSErrorDomain const HJHTTPResponseDecoderDomain = @"com.haijunwei.responseDecode
 NSInteger const HJHTTPResponseDecoderFailure = -1;
 NSInteger const HJHTTPResponseDecoderNormalStatusCode = 200;
 
+HJHTTPResponseKey const HJHTTPResponseCodeKey = @"code";
+HJHTTPResponseKey const HJHTTPResponseDataKey = @"data";
+HJHTTPResponseKey const HJHTTPResponseMessageKey = @"message";
+
 @implementation HJHTTPResponseDecoder
 
 - (id)request:(HJHTTPRequest *)req didGetURLResponse:(NSHTTPURLResponse *)response responseData:(id)responseData error:(NSError *)error {
     if (error) {
         NSString *message = @"";
-        NSInteger statusCode = HJHTTPResponseDecoderNormalStatusCode;
+        NSInteger code = HJHTTPResponseDecoderNormalStatusCode;
         // 如果是服务器响应错误，设置错误码为响应码
         if ([error.userInfo.allKeys containsObject:AFNetworkingOperationFailingURLResponseErrorKey]) {
             NSHTTPURLResponse *res = error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey];
-            statusCode = res.statusCode;
+            code = res.statusCode;
             message = error.localizedDescription;
         }
         if (responseData) {
             message = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-            return [NSError errorWithDomain:HJHTTPResponseDecoderDomain code:statusCode userInfo:@{NSLocalizedDescriptionKey:message}];
+            return [NSError errorWithDomain:HJHTTPResponseDecoderDomain code:code userInfo:@{NSLocalizedDescriptionKey:message}];
         }
         return error;
     }
@@ -40,26 +44,36 @@ NSInteger const HJHTTPResponseDecoderNormalStatusCode = 200;
 /// 创建请求响应
 - (HJHTTPResponse *)createResponse:(HJHTTPRequest *)request responseData:(id)responseData error:(NSError **)error {
     HJHTTPResponse *response = [HJHTTPResponse new];
-    id json = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil];
-    response.statusCode = HJHTTPResponseDecoderNormalStatusCode;
+    id dataObject = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil];
+    response.code = HJHTTPResponseDecoderNormalStatusCode;
     response.rawData = responseData;
-    if (json == nil) { /* json = nil，代表数据仅仅是一段文字，直接解析字符串 */
-        if (request.responseDataCls != NULL) {
-            *error = [NSError errorWithDomain:HJHTTPResponseDecoderDomain
-                                         code:HJHTTPResponseDecoderFailure
-                                     userInfo:@{NSLocalizedDescriptionKey:@"服务器响应数据类型错误"}];
+    
+    // 解析{data: messsage: code:}类数据
+    BOOL isNeedResponseKeyMapping = self.responseKeyMapping != nil;
+    if (isNeedResponseKeyMapping && dataObject && [dataObject isKindOfClass:[NSDictionary class]]) {
+        NSMutableDictionary *jsonDict = dataObject;
+        for (NSString *key in self.responseKeyMapping.allKeys) {
+            [response setValue:jsonDict[self.responseKeyMapping[key]] forKey:key];
         }
+    } else if (!dataObject) { /* dataObject = nil，代表数据不是JSON数据，直接解析字符串 */
         response.data = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-        return response;
     }
-    response.data = json;
+    
+    BOOL isJSON = [response.data isKindOfClass:[NSArray class]] || [response.data isKindOfClass:[NSDictionary class]];
+    if (!response.data || (!isJSON && request.responseDataCls != NULL)) {
+        *error = [NSError errorWithDomain:HJHTTPResponseDecoderDomain
+                                     code:HJHTTPResponseDecoderFailure
+                                 userInfo:@{NSLocalizedDescriptionKey:@"服务器响应数据与预期不符"}];
+        return nil;
+    }
     response.dataObject = [self deserializationWithResponseDataCls:request.responseDataCls
                                                deserializationPath:request.deserializationPath
-                                                              data:json];
+                                                              data:dataObject];
     return response;
 }
 
-/// 反序列化数据
+#pragma mark - Helpers
+
 - (id)deserializationWithResponseDataCls:(Class)cls deserializationPath:(NSString *)path data:(id)data {
     if (cls == NULL) { return nil; }
     if (path && [data isKindOfClass:[NSDictionary class]]) {
