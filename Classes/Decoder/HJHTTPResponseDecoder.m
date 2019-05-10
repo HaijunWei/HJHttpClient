@@ -8,7 +8,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import <MJExtension/MJExtension.h>
 
-NSErrorDomain const HJHTTPResponseDecoderDomain = @"com.haijunwei.responseDecoder";
+NSErrorDomain const HJHTTPResponseDecoderDomain = @"com.haijunwei.response.decoder";
 NSInteger const HJHTTPResponseDecoderFailure = -1;
 NSInteger const HJHTTPResponseDecoderNormalStatusCode = 200;
 
@@ -20,16 +20,12 @@ HJHTTPResponseKey const HJHTTPResponseMessageKey = @"message";
 
 - (id)request:(HJHTTPRequest *)req didGetURLResponse:(NSHTTPURLResponse *)response responseData:(id)responseData error:(NSError *)error {
     if (error) {
-        NSString *message = @"";
-        NSInteger code = HJHTTPResponseDecoderNormalStatusCode;
         // 如果是服务器响应错误，设置错误码为响应码
         if ([error.userInfo.allKeys containsObject:AFNetworkingOperationFailingURLResponseErrorKey]) {
             NSHTTPURLResponse *res = error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey];
-            code = res.statusCode;
-            message = error.localizedDescription;
-        }
-        if (responseData) {
-            message = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+            NSInteger code = res.statusCode;
+            NSString *message = error.localizedDescription;
+            if (responseData) { message = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]; }
             return [NSError errorWithDomain:HJHTTPResponseDecoderDomain code:code userInfo:@{NSLocalizedDescriptionKey:message}];
         }
         return error;
@@ -44,18 +40,19 @@ HJHTTPResponseKey const HJHTTPResponseMessageKey = @"message";
 /// 创建请求响应
 - (HJHTTPResponse *)createResponse:(HJHTTPRequest *)request responseData:(id)responseData error:(NSError **)error {
     HJHTTPResponse *response = [HJHTTPResponse new];
-    id dataObject = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil];
+    id jsonObject = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil];
     response.code = HJHTTPResponseDecoderNormalStatusCode;
+    response.data = jsonObject;
     response.rawData = responseData;
     
     // 解析{data: messsage: code:}类数据
     BOOL isNeedResponseKeyMapping = self.responseKeyMapping != nil;
-    if (isNeedResponseKeyMapping && dataObject && [dataObject isKindOfClass:[NSDictionary class]]) {
-        NSMutableDictionary *jsonDict = dataObject;
+    if (isNeedResponseKeyMapping && jsonObject && [jsonObject isKindOfClass:[NSDictionary class]]) {
+        NSMutableDictionary *jsonDict = jsonObject;
         for (NSString *key in self.responseKeyMapping.allKeys) {
             [response setValue:jsonDict[self.responseKeyMapping[key]] forKey:key];
         }
-    } else if (!dataObject) { /* dataObject = nil，代表数据不是JSON数据，直接解析字符串 */
+    } else if (!jsonObject) { /* jsonObject = nil，代表数据不是JSON数据，直接解析字符串 */
         response.data = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
     }
     
@@ -63,12 +60,12 @@ HJHTTPResponseKey const HJHTTPResponseMessageKey = @"message";
     if (!response.data || (!isJSON && request.responseDataCls != NULL)) {
         *error = [NSError errorWithDomain:HJHTTPResponseDecoderDomain
                                      code:HJHTTPResponseDecoderFailure
-                                 userInfo:@{NSLocalizedDescriptionKey:@"服务器响应数据与预期不符"}];
+                                 userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"服务器响应数据与预期不符\n%@", response.data]}];
         return nil;
     }
     response.dataObject = [self deserializationWithResponseDataCls:request.responseDataCls
                                                deserializationPath:request.deserializationPath
-                                                              data:dataObject];
+                                                              data:jsonObject];
     return response;
 }
 
