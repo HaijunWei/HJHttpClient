@@ -21,6 +21,8 @@
     printf("--------------------------------------\n❌ %s\n\n",    \
     [[NSString stringWithFormat:(FORMAT), ##__VA_ARGS__] UTF8String]);
 
+NSErrorDomain const HJHTTPClientDomain = @"com.haijunwei.httpclient";
+
 @interface HJHTTPClient ()
 
 @property (nonatomic, strong) AFHTTPSessionManager *httpManager;
@@ -177,20 +179,27 @@
     if ([self.delegate respondsToSelector:@selector(httpClient:prepareURLRequest:)]) {
         urlRequest = [self.delegate httpClient:self prepareURLRequest:urlRequest];
     }
+    void (^handleCallback)(id response) = ^(id response){
+        if ([response isKindOfClass:[NSError class]]) {
+            // 网络回调在子线程，错误处理很多时候需要操作UI，切到主线程回调
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSError *e = [self request:req didError:response];
+                failure(e ? : response);
+            });
+        } else {
+            [self request:req didSucess:response];
+            success(response);
+        }
+    };
     NSURLSessionDataTask * task = [self.httpManager dataTaskWithRequest:urlRequest uploadProgress:uploadProgress downloadProgress:nil completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         id resultObject = [self.responseDecoder request:req didGetURLResponse:(NSHTTPURLResponse *)response
                                            responseData:responseObject
                                                   error:error];
         if ([resultObject isKindOfClass:[NSError class]]) {
-            // 网络回调在子线程，错误处理很多时候需要操作UI，切到主线程回调
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSError *e = [self request:req didError:resultObject];
-                if (e) { failure(e); }
-                else { failure(resultObject); }
-            });
+            handleCallback(resultObject);
         } else {
-            [self request:req didSucess:resultObject];
-            success(resultObject);
+            NSError *error = [self verifyResponse:resultObject forRequest:req];
+            handleCallback(error ? : resultObject);
         }
     }];
     [task resume];
@@ -216,6 +225,22 @@
     if (self.isPrintLog) {
         HJNetSuccessLog(@"%@，%@，%@", [self methodNameWithRequest:req], req.path, rep.data);
     }
+    
+    
+}
+
+/// 验证响应值
+- (NSError *)verifyResponse:(HJHTTPResponse *)rep forRequest:(HJHTTPRequest *)req {
+    NSString *errorMsg = nil;
+    if ([self.delegate respondsToSelector:@selector(httpClient:verifyResponse:forRequest:)]) {
+        errorMsg = [self.delegate httpClient:self verifyResponse:rep forRequest:req];
+    }
+    if (errorMsg) {
+        return [NSError errorWithDomain:HJHTTPClientDomain
+                                   code:HJHTTPClientErrorCodeVerifyFailure
+                               userInfo:@{NSLocalizedDescriptionKey:errorMsg}];
+    }
+    return nil;
 }
 
 /// 请求发生错误

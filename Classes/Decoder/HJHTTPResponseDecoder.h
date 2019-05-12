@@ -12,10 +12,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 extern NSErrorDomain const HJHTTPResponseDecoderDomain;
-/* 解析响应值失败 */
-extern NSInteger const HJHTTPResponseDecoderFailure;
-/* 正常状态响应码 */
-extern NSInteger const HJHTTPResponseDecoderNormalStatusCode;
+
+typedef NS_ENUM(NSInteger, HJHTTPResponseCode) {
+    /* 正常响应码 */
+    HJHTTPResponseCodeNormal = 200,
+    /* 解析响应值失败 */
+    HJHTTPResponseCodeDecoderFailure = -1,
+};
 
 typedef NSString *HJHTTPResponseKey;
 

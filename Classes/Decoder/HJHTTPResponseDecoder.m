@@ -8,9 +8,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import <MJExtension/MJExtension.h>
 
-NSErrorDomain const HJHTTPResponseDecoderDomain = @"com.haijunwei.response.decoder";
-NSInteger const HJHTTPResponseDecoderFailure = -1;
-NSInteger const HJHTTPResponseDecoderNormalStatusCode = 200;
+NSErrorDomain const HJHTTPResponseDecoderDomain = @"com.haijunwei.httpclient.response.decoder";
 
 HJHTTPResponseKey const HJHTTPResponseCodeKey = @"code";
 HJHTTPResponseKey const HJHTTPResponseDataKey = @"data";
@@ -41,7 +39,7 @@ HJHTTPResponseKey const HJHTTPResponseMessageKey = @"message";
 - (HJHTTPResponse *)createResponse:(HJHTTPRequest *)request responseData:(id)responseData error:(NSError **)error {
     HJHTTPResponse *response = [HJHTTPResponse new];
     id jsonObject = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil];
-    response.code = HJHTTPResponseDecoderNormalStatusCode;
+    response.code = HJHTTPResponseCodeNormal;
     response.data = jsonObject;
     response.rawData = responseData;
     
@@ -59,13 +57,13 @@ HJHTTPResponseKey const HJHTTPResponseMessageKey = @"message";
     BOOL isJSON = [response.data isKindOfClass:[NSArray class]] || [response.data isKindOfClass:[NSDictionary class]];
     if (!response.data || (!isJSON && request.responseDataCls != NULL)) {
         *error = [NSError errorWithDomain:HJHTTPResponseDecoderDomain
-                                     code:HJHTTPResponseDecoderFailure
+                                     code:HJHTTPResponseCodeDecoderFailure
                                  userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"服务器响应数据与预期不符\n%@", response.data]}];
         return nil;
     }
     response.dataObject = [self deserializationWithResponseDataCls:request.responseDataCls
                                                deserializationPath:request.deserializationPath
-                                                              data:jsonObject];
+                                                              data:response.data];
     return response;
 }
 
