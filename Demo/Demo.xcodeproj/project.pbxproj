@@ -14,17 +14,17 @@
 		841BA36A2285C8C600C45FD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841BA3692285C8C600C45FD1 /* Assets.xcassets */; };
 		841BA36D2285C8C600C45FD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841BA36B2285C8C600C45FD1 /* LaunchScreen.storyboard */; };
 		841BA3702285C8C600C45FD1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA36F2285C8C600C45FD1 /* main.m */; };
-		841BA3912285C91F00C45FD1 /* HJHTTPRequestFormFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA3782285C91F00C45FD1 /* HJHTTPRequestFormFile.m */; };
-		841BA3922285C91F00C45FD1 /* HJHTTPRequestGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA37C2285C91F00C45FD1 /* HJHTTPRequestGroup.m */; };
-		841BA3932285C91F00C45FD1 /* HJHTTPTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA37E2285C91F00C45FD1 /* HJHTTPTask.m */; };
-		841BA3942285C91F00C45FD1 /* HJHTTPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA3802285C91F00C45FD1 /* HJHTTPResponse.m */; };
-		841BA3952285C91F00C45FD1 /* HJHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA3842285C91F00C45FD1 /* HJHTTPClient.m */; };
-		841BA3962285C91F00C45FD1 /* HJHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA3862285C91F00C45FD1 /* HJHTTPRequest.m */; };
-		841BA3972285C91F00C45FD1 /* HJHTTPActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA3882285C91F00C45FD1 /* HJHTTPActivityIndicator.m */; };
-		841BA3982285C91F00C45FD1 /* HJHTTPResponseDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA38C2285C91F00C45FD1 /* HJHTTPResponseDecoder.m */; };
-		841BA3992285C91F00C45FD1 /* HJHTTPRequest+Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA38D2285C91F00C45FD1 /* HJHTTPRequest+Decoder.m */; };
-		841BA39A2285C91F00C45FD1 /* HJHTTPResponse+Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA38F2285C91F00C45FD1 /* HJHTTPResponse+Decoder.m */; };
-		8438D6982285CB1B00F3EC5A /* HJHTTPClient+Indicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8438D6972285CB1B00F3EC5A /* HJHTTPClient+Indicator.m */; };
+		841BA3912285C91F00C45FD1 /* HJHttpRequestFormFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA3782285C91F00C45FD1 /* HJHttpRequestFormFile.m */; };
+		841BA3922285C91F00C45FD1 /* HJHttpRequestGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA37C2285C91F00C45FD1 /* HJHttpRequestGroup.m */; };
+		841BA3932285C91F00C45FD1 /* HJHttpTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA37E2285C91F00C45FD1 /* HJHttpTask.m */; };
+		841BA3942285C91F00C45FD1 /* HJHttpResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA3802285C91F00C45FD1 /* HJHttpResponse.m */; };
+		841BA3952285C91F00C45FD1 /* HJHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA3842285C91F00C45FD1 /* HJHttpClient.m */; };
+		841BA3962285C91F00C45FD1 /* HJHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA3862285C91F00C45FD1 /* HJHttpRequest.m */; };
+		841BA3972285C91F00C45FD1 /* HJHttpActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA3882285C91F00C45FD1 /* HJHttpActivityIndicator.m */; };
+		841BA3982285C91F00C45FD1 /* HJHttpResponseDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA38C2285C91F00C45FD1 /* HJHttpResponseDecoder.m */; };
+		841BA3992285C91F00C45FD1 /* HJHttpRequest+Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA38D2285C91F00C45FD1 /* HJHttpRequest+Decoder.m */; };
+		841BA39A2285C91F00C45FD1 /* HJHttpResponse+Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BA38F2285C91F00C45FD1 /* HJHttpResponse+Decoder.m */; };
+		8438D6982285CB1B00F3EC5A /* HJHttpClient+Indicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8438D6972285CB1B00F3EC5A /* HJHttpClient+Indicator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,31 +39,31 @@
 		841BA36C2285C8C600C45FD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		841BA36E2285C8C600C45FD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841BA36F2285C8C600C45FD1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		841BA3782285C91F00C45FD1 /* HJHTTPRequestFormFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPRequestFormFile.m; sourceTree = "<group>"; };
-		841BA3792285C91F00C45FD1 /* HJHTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPResponse.h; sourceTree = "<group>"; };
-		841BA37A2285C91F00C45FD1 /* HJHTTPTask+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJHTTPTask+Private.h"; sourceTree = "<group>"; };
-		841BA37B2285C91F00C45FD1 /* HJHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPRequest.h; sourceTree = "<group>"; };
-		841BA37C2285C91F00C45FD1 /* HJHTTPRequestGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPRequestGroup.m; sourceTree = "<group>"; };
-		841BA37D2285C91F00C45FD1 /* HJHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPClient.h; sourceTree = "<group>"; };
-		841BA37E2285C91F00C45FD1 /* HJHTTPTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPTask.m; sourceTree = "<group>"; };
-		841BA37F2285C91F00C45FD1 /* HJHTTPRequestGroup+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJHTTPRequestGroup+Private.h"; sourceTree = "<group>"; };
-		841BA3802285C91F00C45FD1 /* HJHTTPResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPResponse.m; sourceTree = "<group>"; };
-		841BA3812285C91F00C45FD1 /* HJHTTPRequestFormFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPRequestFormFile.h; sourceTree = "<group>"; };
-		841BA3822285C91F00C45FD1 /* HJHTTPResponseDecoder+Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJHTTPResponseDecoder+Protocol.h"; sourceTree = "<group>"; };
-		841BA3832285C91F00C45FD1 /* HJHTTPTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPTask.h; sourceTree = "<group>"; };
-		841BA3842285C91F00C45FD1 /* HJHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPClient.m; sourceTree = "<group>"; };
-		841BA3852285C91F00C45FD1 /* HJHTTPRequestGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPRequestGroup.h; sourceTree = "<group>"; };
-		841BA3862285C91F00C45FD1 /* HJHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPRequest.m; sourceTree = "<group>"; };
-		841BA3882285C91F00C45FD1 /* HJHTTPActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPActivityIndicator.m; sourceTree = "<group>"; };
-		841BA3892285C91F00C45FD1 /* HJHTTPActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPActivityIndicator.h; sourceTree = "<group>"; };
-		841BA38B2285C91F00C45FD1 /* HJHTTPResponse+Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJHTTPResponse+Decoder.h"; sourceTree = "<group>"; };
-		841BA38C2285C91F00C45FD1 /* HJHTTPResponseDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHTTPResponseDecoder.m; sourceTree = "<group>"; };
-		841BA38D2285C91F00C45FD1 /* HJHTTPRequest+Decoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HJHTTPRequest+Decoder.m"; sourceTree = "<group>"; };
-		841BA38E2285C91F00C45FD1 /* HJHTTPResponseDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHTTPResponseDecoder.h; sourceTree = "<group>"; };
-		841BA38F2285C91F00C45FD1 /* HJHTTPResponse+Decoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HJHTTPResponse+Decoder.m"; sourceTree = "<group>"; };
-		841BA3902285C91F00C45FD1 /* HJHTTPRequest+Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJHTTPRequest+Decoder.h"; sourceTree = "<group>"; };
-		8438D6962285CB1B00F3EC5A /* HJHTTPClient+Indicator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HJHTTPClient+Indicator.h"; sourceTree = "<group>"; };
-		8438D6972285CB1B00F3EC5A /* HJHTTPClient+Indicator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HJHTTPClient+Indicator.m"; sourceTree = "<group>"; };
+		841BA3782285C91F00C45FD1 /* HJHttpRequestFormFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHttpRequestFormFile.m; sourceTree = "<group>"; };
+		841BA3792285C91F00C45FD1 /* HJHttpResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHttpResponse.h; sourceTree = "<group>"; };
+		841BA37A2285C91F00C45FD1 /* HJHttpTask+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJHttpTask+Private.h"; sourceTree = "<group>"; };
+		841BA37B2285C91F00C45FD1 /* HJHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHttpRequest.h; sourceTree = "<group>"; };
+		841BA37C2285C91F00C45FD1 /* HJHttpRequestGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHttpRequestGroup.m; sourceTree = "<group>"; };
+		841BA37D2285C91F00C45FD1 /* HJHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHttpClient.h; sourceTree = "<group>"; };
+		841BA37E2285C91F00C45FD1 /* HJHttpTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHttpTask.m; sourceTree = "<group>"; };
+		841BA37F2285C91F00C45FD1 /* HJHttpRequestGroup+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJHttpRequestGroup+Private.h"; sourceTree = "<group>"; };
+		841BA3802285C91F00C45FD1 /* HJHttpResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHttpResponse.m; sourceTree = "<group>"; };
+		841BA3812285C91F00C45FD1 /* HJHttpRequestFormFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHttpRequestFormFile.h; sourceTree = "<group>"; };
+		841BA3822285C91F00C45FD1 /* HJHttpResponseDecoder+Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJHttpResponseDecoder+Protocol.h"; sourceTree = "<group>"; };
+		841BA3832285C91F00C45FD1 /* HJHttpTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHttpTask.h; sourceTree = "<group>"; };
+		841BA3842285C91F00C45FD1 /* HJHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHttpClient.m; sourceTree = "<group>"; };
+		841BA3852285C91F00C45FD1 /* HJHttpRequestGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHttpRequestGroup.h; sourceTree = "<group>"; };
+		841BA3862285C91F00C45FD1 /* HJHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHttpRequest.m; sourceTree = "<group>"; };
+		841BA3882285C91F00C45FD1 /* HJHttpActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHttpActivityIndicator.m; sourceTree = "<group>"; };
+		841BA3892285C91F00C45FD1 /* HJHttpActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHttpActivityIndicator.h; sourceTree = "<group>"; };
+		841BA38B2285C91F00C45FD1 /* HJHttpResponse+Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJHttpResponse+Decoder.h"; sourceTree = "<group>"; };
+		841BA38C2285C91F00C45FD1 /* HJHttpResponseDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJHttpResponseDecoder.m; sourceTree = "<group>"; };
+		841BA38D2285C91F00C45FD1 /* HJHttpRequest+Decoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HJHttpRequest+Decoder.m"; sourceTree = "<group>"; };
+		841BA38E2285C91F00C45FD1 /* HJHttpResponseDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJHttpResponseDecoder.h; sourceTree = "<group>"; };
+		841BA38F2285C91F00C45FD1 /* HJHttpResponse+Decoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HJHttpResponse+Decoder.m"; sourceTree = "<group>"; };
+		841BA3902285C91F00C45FD1 /* HJHttpRequest+Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HJHttpRequest+Decoder.h"; sourceTree = "<group>"; };
+		8438D6962285CB1B00F3EC5A /* HJHttpClient+Indicator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HJHttpClient+Indicator.h"; sourceTree = "<group>"; };
+		8438D6972285CB1B00F3EC5A /* HJHttpClient+Indicator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HJHttpClient+Indicator.m"; sourceTree = "<group>"; };
 		AACAC4ADAB3749E2A2EB7F2A /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		E9BB60FA39D873F14907F597 /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -138,21 +138,21 @@
 		841BA3772285C91F00C45FD1 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				841BA37D2285C91F00C45FD1 /* HJHTTPClient.h */,
-				841BA3842285C91F00C45FD1 /* HJHTTPClient.m */,
-				841BA37B2285C91F00C45FD1 /* HJHTTPRequest.h */,
-				841BA3862285C91F00C45FD1 /* HJHTTPRequest.m */,
-				841BA3812285C91F00C45FD1 /* HJHTTPRequestFormFile.h */,
-				841BA3782285C91F00C45FD1 /* HJHTTPRequestFormFile.m */,
-				841BA3852285C91F00C45FD1 /* HJHTTPRequestGroup.h */,
-				841BA37C2285C91F00C45FD1 /* HJHTTPRequestGroup.m */,
-				841BA37F2285C91F00C45FD1 /* HJHTTPRequestGroup+Private.h */,
-				841BA3792285C91F00C45FD1 /* HJHTTPResponse.h */,
-				841BA3802285C91F00C45FD1 /* HJHTTPResponse.m */,
-				841BA3822285C91F00C45FD1 /* HJHTTPResponseDecoder+Protocol.h */,
-				841BA3832285C91F00C45FD1 /* HJHTTPTask.h */,
-				841BA37E2285C91F00C45FD1 /* HJHTTPTask.m */,
-				841BA37A2285C91F00C45FD1 /* HJHTTPTask+Private.h */,
+				841BA37D2285C91F00C45FD1 /* HJHttpClient.h */,
+				841BA3842285C91F00C45FD1 /* HJHttpClient.m */,
+				841BA37B2285C91F00C45FD1 /* HJHttpRequest.h */,
+				841BA3862285C91F00C45FD1 /* HJHttpRequest.m */,
+				841BA3812285C91F00C45FD1 /* HJHttpRequestFormFile.h */,
+				841BA3782285C91F00C45FD1 /* HJHttpRequestFormFile.m */,
+				841BA3852285C91F00C45FD1 /* HJHttpRequestGroup.h */,
+				841BA37C2285C91F00C45FD1 /* HJHttpRequestGroup.m */,
+				841BA37F2285C91F00C45FD1 /* HJHttpRequestGroup+Private.h */,
+				841BA3792285C91F00C45FD1 /* HJHttpResponse.h */,
+				841BA3802285C91F00C45FD1 /* HJHttpResponse.m */,
+				841BA3822285C91F00C45FD1 /* HJHttpResponseDecoder+Protocol.h */,
+				841BA3832285C91F00C45FD1 /* HJHttpTask.h */,
+				841BA37E2285C91F00C45FD1 /* HJHttpTask.m */,
+				841BA37A2285C91F00C45FD1 /* HJHttpTask+Private.h */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -160,10 +160,10 @@
 		841BA3872285C91F00C45FD1 /* Indicator */ = {
 			isa = PBXGroup;
 			children = (
-				841BA3892285C91F00C45FD1 /* HJHTTPActivityIndicator.h */,
-				841BA3882285C91F00C45FD1 /* HJHTTPActivityIndicator.m */,
-				8438D6962285CB1B00F3EC5A /* HJHTTPClient+Indicator.h */,
-				8438D6972285CB1B00F3EC5A /* HJHTTPClient+Indicator.m */,
+				841BA3892285C91F00C45FD1 /* HJHttpActivityIndicator.h */,
+				841BA3882285C91F00C45FD1 /* HJHttpActivityIndicator.m */,
+				8438D6962285CB1B00F3EC5A /* HJHttpClient+Indicator.h */,
+				8438D6972285CB1B00F3EC5A /* HJHttpClient+Indicator.m */,
 			);
 			path = Indicator;
 			sourceTree = "<group>";
@@ -171,12 +171,12 @@
 		841BA38A2285C91F00C45FD1 /* Decoder */ = {
 			isa = PBXGroup;
 			children = (
-				841BA3902285C91F00C45FD1 /* HJHTTPRequest+Decoder.h */,
-				841BA38D2285C91F00C45FD1 /* HJHTTPRequest+Decoder.m */,
-				841BA38B2285C91F00C45FD1 /* HJHTTPResponse+Decoder.h */,
-				841BA38F2285C91F00C45FD1 /* HJHTTPResponse+Decoder.m */,
-				841BA38E2285C91F00C45FD1 /* HJHTTPResponseDecoder.h */,
-				841BA38C2285C91F00C45FD1 /* HJHTTPResponseDecoder.m */,
+				841BA3902285C91F00C45FD1 /* HJHttpRequest+Decoder.h */,
+				841BA38D2285C91F00C45FD1 /* HJHttpRequest+Decoder.m */,
+				841BA38B2285C91F00C45FD1 /* HJHttpResponse+Decoder.h */,
+				841BA38F2285C91F00C45FD1 /* HJHttpResponse+Decoder.m */,
+				841BA38E2285C91F00C45FD1 /* HJHttpResponseDecoder.h */,
+				841BA38C2285C91F00C45FD1 /* HJHttpResponseDecoder.m */,
 			);
 			path = Decoder;
 			sourceTree = "<group>";
@@ -285,20 +285,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				841BA3932285C91F00C45FD1 /* HJHTTPTask.m in Sources */,
+				841BA3932285C91F00C45FD1 /* HJHttpTask.m in Sources */,
 				841BA3652285C8C600C45FD1 /* ViewController.m in Sources */,
-				841BA3952285C91F00C45FD1 /* HJHTTPClient.m in Sources */,
-				841BA3922285C91F00C45FD1 /* HJHTTPRequestGroup.m in Sources */,
-				8438D6982285CB1B00F3EC5A /* HJHTTPClient+Indicator.m in Sources */,
-				841BA3912285C91F00C45FD1 /* HJHTTPRequestFormFile.m in Sources */,
-				841BA3942285C91F00C45FD1 /* HJHTTPResponse.m in Sources */,
+				841BA3952285C91F00C45FD1 /* HJHttpClient.m in Sources */,
+				841BA3922285C91F00C45FD1 /* HJHttpRequestGroup.m in Sources */,
+				8438D6982285CB1B00F3EC5A /* HJHttpClient+Indicator.m in Sources */,
+				841BA3912285C91F00C45FD1 /* HJHttpRequestFormFile.m in Sources */,
+				841BA3942285C91F00C45FD1 /* HJHttpResponse.m in Sources */,
 				841BA3702285C8C600C45FD1 /* main.m in Sources */,
-				841BA3962285C91F00C45FD1 /* HJHTTPRequest.m in Sources */,
-				841BA3972285C91F00C45FD1 /* HJHTTPActivityIndicator.m in Sources */,
-				841BA3982285C91F00C45FD1 /* HJHTTPResponseDecoder.m in Sources */,
-				841BA3992285C91F00C45FD1 /* HJHTTPRequest+Decoder.m in Sources */,
+				841BA3962285C91F00C45FD1 /* HJHttpRequest.m in Sources */,
+				841BA3972285C91F00C45FD1 /* HJHttpActivityIndicator.m in Sources */,
+				841BA3982285C91F00C45FD1 /* HJHttpResponseDecoder.m in Sources */,
+				841BA3992285C91F00C45FD1 /* HJHttpRequest+Decoder.m in Sources */,
 				841BA3622285C8C600C45FD1 /* AppDelegate.m in Sources */,
-				841BA39A2285C91F00C45FD1 /* HJHTTPResponse+Decoder.m in Sources */,
+				841BA39A2285C91F00C45FD1 /* HJHttpResponse+Decoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

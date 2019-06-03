@@ -1,5 +1,5 @@
 //
-//  HJHTTPRequestFormFile.h
+//  HJHttpRequestFormFile.h
 //
 //  Created by Haijun on 2019/5/10.
 //
@@ -8,7 +8,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HJHTTPRequestFormFile : NSObject
+@interface HJHttpRequestFormFile : NSObject
 
 @property (nonatomic, strong) NSData *data;
 @property (nonatomic, copy) NSString *name;

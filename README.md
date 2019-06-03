@@ -4,11 +4,11 @@
 根据情况组合
 ```
 // 全家桶
-pod 'HJHTTPClient'
+pod 'HJHttpClient'
 // 核心部分
-pod 'HJHTTPClient/Core'
+pod 'HJHttpClient/Core'
 // 响应解析器
-pod 'HJHTTPClient/Decoder'
+pod 'HJHttpClient/Decoder'
 // HUD指示器
-pod 'HJHTTPClient/Indicator'
+pod 'HJHttpClient/Indicator'
 ```

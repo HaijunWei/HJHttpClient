@@ -1,50 +1,50 @@
 //
-//  HJHTTPRequest+Decoder.m
+//  HJHttpRequest+Decoder.m
 //
 //  Created by Haijun on 2019/5/9.
 //
 
-#import "HJHTTPRequest+Decoder.h"
+#import "HJHttpRequest+Decoder.h"
 
 static NSString * const kResponseDataCls = @"responseDataCls";
 static NSString * const kDeserializationPath = @"deserializationPath";
 
-@implementation HJHTTPRequest (Decoder)
+@implementation HJHttpRequest (Decoder)
 
 + (instancetype)GET:(NSString *)path responseDataCls:(Class)responseDataCls {
-    return [self request:path method:HJHTTPMethodGET deserializationPath:nil responseDataCls:responseDataCls];
+    return [self request:path method:HJHttpMethodGET deserializationPath:nil responseDataCls:responseDataCls];
 }
 
 + (instancetype)GET:(NSString *)path deserializationPath:(NSString *)deserializationPath responseDataCls:(Class)responseDataCls {
-    return [self request:path method:HJHTTPMethodGET deserializationPath:deserializationPath responseDataCls:responseDataCls];
+    return [self request:path method:HJHttpMethodGET deserializationPath:deserializationPath responseDataCls:responseDataCls];
 }
 
 + (instancetype)POST:(NSString *)path responseDataCls:(Class)responseDataCls {
-    return [self request:path method:HJHTTPMethodPOST deserializationPath:nil responseDataCls:responseDataCls];
+    return [self request:path method:HJHttpMethodPOST deserializationPath:nil responseDataCls:responseDataCls];
 }
 
 + (instancetype)POST:(NSString *)path deserializationPath:(NSString *)deserializationPath responseDataCls:(Class)responseDataCls {
-    return [self request:path method:HJHTTPMethodPOST deserializationPath:deserializationPath responseDataCls:responseDataCls];
+    return [self request:path method:HJHttpMethodPOST deserializationPath:deserializationPath responseDataCls:responseDataCls];
 }
 
 + (instancetype)PUT:(NSString *)path responseDataCls:(Class)responseDataCls {
-    return [self request:path method:HJHTTPMethodPUT deserializationPath:nil responseDataCls:responseDataCls];
+    return [self request:path method:HJHttpMethodPUT deserializationPath:nil responseDataCls:responseDataCls];
 }
 
 + (instancetype)PUT:(NSString *)path deserializationPath:(NSString *)deserializationPath responseDataCls:(Class)responseDataCls {
-    return [self request:path method:HJHTTPMethodPUT deserializationPath:deserializationPath responseDataCls:responseDataCls];
+    return [self request:path method:HJHttpMethodPUT deserializationPath:deserializationPath responseDataCls:responseDataCls];
 }
 
 + (instancetype)DELETE:(NSString *)path responseDataCls:(Class)responseDataCls {
-    return [self request:path method:HJHTTPMethodDELETE deserializationPath:nil responseDataCls:responseDataCls];
+    return [self request:path method:HJHttpMethodDELETE deserializationPath:nil responseDataCls:responseDataCls];
 }
 
 + (instancetype)DELETE:(NSString *)path deserializationPath:(NSString *)deserializationPath responseDataCls:(Class)responseDataCls {
-    return [self request:path method:HJHTTPMethodDELETE deserializationPath:deserializationPath responseDataCls:responseDataCls];
+    return [self request:path method:HJHttpMethodDELETE deserializationPath:deserializationPath responseDataCls:responseDataCls];
 }
 
-+ (instancetype)request:(NSString *)path method:(HJHTTPMethod)method deserializationPath:(NSString *)deserializationPath responseDataCls:(Class)responseDataCls {
-    HJHTTPRequest *req = [self request:path method:method];
++ (instancetype)request:(NSString *)path method:(HJHttpMethod)method deserializationPath:(NSString *)deserializationPath responseDataCls:(Class)responseDataCls {
+    HJHttpRequest *req = [self request:path method:method];
     req.responseDataCls = responseDataCls;
     req.deserializationPath = deserializationPath;
     return req;

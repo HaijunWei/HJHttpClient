@@ -1,14 +1,14 @@
 //
-//  HJHTTPResponse+Decoder.h
+//  HJHttpResponse+Decoder.h
 //
 //  Created by Haijun on 2019/5/9.
 //
 
-#import "HJHTTPResponse.h"
+#import "HJHttpResponse.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HJHTTPResponse (Decoder)
+@interface HJHttpResponse (Decoder)
 
 /// 反序列化后的对象
 @property (nonatomic, strong) id dataObject;

@@ -1,14 +1,14 @@
 //
-//  HJHTTPRequest+Decoder.h
+//  HJHttpRequest+Decoder.h
 //
 //  Created by Haijun on 2019/5/9.
 //
 
-#import "HJHTTPRequest.h"
+#import "HJHttpRequest.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HJHTTPRequest (Decoder)
+@interface HJHttpRequest (Decoder)
 
 /// 响应数据类型
 @property (nonatomic, assign) Class responseDataCls;

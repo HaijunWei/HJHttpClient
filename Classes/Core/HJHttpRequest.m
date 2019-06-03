@@ -4,14 +4,14 @@
 //  Created by Haijun on 2019/5/9.
 //
 
-#import "HJHTTPRequest.h"
+#import "HJHttpRequest.h"
 
-@implementation HJHTTPRequest
+@implementation HJHttpRequest
 
 #pragma mark - 便利方法
 
-+ (instancetype)request:(NSString *)path method:(HJHTTPMethod)method {
-    HJHTTPRequest *req = [HJHTTPRequest new];
++ (instancetype)request:(NSString *)path method:(HJHttpMethod)method {
+    HJHttpRequest *req = [HJHttpRequest new];
     req.path = path;
     req.method = method;
     return req;

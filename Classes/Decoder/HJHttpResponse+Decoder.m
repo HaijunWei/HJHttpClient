@@ -1,14 +1,14 @@
 //
-//  HJHTTPResponse+Decoder.m
+//  HJHttpResponse+Decoder.m
 //
 //  Created by Haijun on 2019/5/9.
 //
 
-#import "HJHTTPResponse+Decoder.h"
+#import "HJHttpResponse+Decoder.h"
 
 static NSString * const kDataObject = @"dataObject";
 
-@implementation HJHTTPResponse (Decoder)
+@implementation HJHttpResponse (Decoder)
 
 - (void)setDataObject:(id)dataObject {
     self.userInfo[kDataObject] = dataObject;

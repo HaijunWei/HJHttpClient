@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "HJHTTPResponseDecoder.h"
-#import "HJHTTPClient+Indicator.h"
+#import "HJHttpResponseDecoder.h"
+#import "HJHttpClient+Indicator.h"
 
 @interface ViewController ()
 
@@ -20,21 +20,21 @@
     [super viewDidLoad];
     
     // 单个请求
-    HJHTTPRequest *req = [HJHTTPRequest GET:@"api/path" responseDataCls:nil];
-    [HJHTTPClient enqueue:req hudView:self.view success:^(HJHTTPResponse * _Nonnull rep) {
+    HJHttpRequest *req = [HJHttpRequest GET:@"api/path" responseDataCls:nil];
+    [HJHttpClient enqueue:req hudView:self.view success:^(HJHttpResponse * _Nonnull rep) {
         
     } failure:^(NSError * _Nonnull error) {
         
     }];
     
     // 多个请求
-    HJHTTPRequestGroup *group = [HJHTTPRequestGroup group:^(HJHTTPRequestGroup * _Nonnull g) {
-        [g add:[HJHTTPRequest new]];
-        [g lazyAdd:^HJHTTPRequest * _Nonnull(NSArray<HJHTTPResponse *> * _Nonnull reps) {
-            return [HJHTTPRequest new];
+    HJHttpRequestGroup *group = [HJHttpRequestGroup group:^(HJHttpRequestGroup * _Nonnull g) {
+        [g add:[HJHttpRequest new]];
+        [g lazyAdd:^HJHttpRequest * _Nonnull(NSArray<HJHttpResponse *> * _Nonnull reps) {
+            return [HJHttpRequest new];
         }];
     }];
-    [HJHTTPClient enqueueGroup:group hudView:self.view success:^(NSArray<HJHTTPResponse *> * _Nonnull reps) {
+    [HJHttpClient enqueueGroup:group hudView:self.view success:^(NSArray<HJHttpResponse *> * _Nonnull reps) {
         
     } failure:^(NSError * _Nonnull error) {
         

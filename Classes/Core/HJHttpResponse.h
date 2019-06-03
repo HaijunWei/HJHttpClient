@@ -1,5 +1,5 @@
 //
-//  HJHTTPResponse.h
+//  HJHttpResponse.h
 //
 //  Created by Haijun on 2019/5/9.
 //
@@ -8,7 +8,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HJHTTPResponse : NSObject
+@interface HJHttpResponse : NSObject
 
 /// 原始响应值
 @property (nonatomic, strong) id rawData;

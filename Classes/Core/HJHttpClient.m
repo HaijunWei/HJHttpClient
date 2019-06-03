@@ -1,12 +1,12 @@
 //
-//  HJHTTPClient.m
+//  HJHttpClient.m
 //
 //  Created by Haijun on 2019/5/9.
 //
 
-#import "HJHTTPClient.h"
-#import "HJHTTPTask+Private.h"
-#import "HJHTTPRequestGroup+Private.h"
+#import "HJHttpClient.h"
+#import "HJHttpTask+Private.h"
+#import "HJHttpRequestGroup+Private.h"
 #import <AFNetworking/AFNetworking.h>
 
 #define HJNetWatingLog(FORMAT, ...) \
@@ -21,18 +21,18 @@
     printf("--------------------------------------\n❌ %s\n\n",    \
     [[NSString stringWithFormat:(FORMAT), ##__VA_ARGS__] UTF8String]);
 
-NSErrorDomain const HJHTTPClientDomain = @"com.haijunwei.httpclient";
+NSErrorDomain const HJHttpClientDomain = @"com.haijunwei.httpclient";
 
-@interface HJHTTPClient ()
+@interface HJHttpClient ()
 
 @property (nonatomic, strong) AFHTTPSessionManager *httpManager;
 @property (nonatomic, strong) AFHTTPRequestSerializer *httpRequestSerializer;
 @property (nonatomic, strong) AFJSONRequestSerializer *jsonRequestSerializer;
-@property (nonatomic, strong) NSMutableArray<HJHTTPTask *> *tasks;
+@property (nonatomic, strong) NSMutableArray<HJHttpTask *> *tasks;
 
 @end
 
-@implementation HJHTTPClient
+@implementation HJHttpClient
 
 + (instancetype)shared {
     static id object;
@@ -45,39 +45,39 @@ NSErrorDomain const HJHTTPClientDomain = @"com.haijunwei.httpclient";
 
 #pragma mark - 单例便利方法
 
-+ (HJHTTPTask *)enqueue:(HJHTTPRequest *)req
-                success:(HJHTTPClientSingleSuccessBlock)success
-                failure:(HJHTTPClientFailureBlock)failure {
++ (HJHttpTask *)enqueue:(HJHttpRequest *)req
+                success:(HJHttpClientSingleSuccessBlock)success
+                failure:(HJHttpClientFailureBlock)failure {
     return [[self shared] enqueue:req success:success failure:failure];
 }
 
-+ (HJHTTPTask *)enqueueGroup:(HJHTTPRequestGroup *)group
-                     success:(HJHTTPClientSuccessBlock)success
-                     failure:(HJHTTPClientFailureBlock)failure {
++ (HJHttpTask *)enqueueGroup:(HJHttpRequestGroup *)group
+                     success:(HJHttpClientSuccessBlock)success
+                     failure:(HJHttpClientFailureBlock)failure {
     return [[self shared] enqueueGroup:group success:success failure:failure];
 }
 
 #pragma mark - 发起请求
 
-- (HJHTTPTask *)enqueue:(HJHTTPRequest *)req
-                success:(HJHTTPClientSingleSuccessBlock)success
-                failure:(HJHTTPClientFailureBlock)failure {
-    HJHTTPRequestGroup *group = [HJHTTPRequestGroup new];
+- (HJHttpTask *)enqueue:(HJHttpRequest *)req
+                success:(HJHttpClientSingleSuccessBlock)success
+                failure:(HJHttpClientFailureBlock)failure {
+    HJHttpRequestGroup *group = [HJHttpRequestGroup new];
     [group add:req];
-    return [self enqueueGroup:group success:^(NSArray<HJHTTPResponse *> * _Nonnull reps) {
+    return [self enqueueGroup:group success:^(NSArray<HJHttpResponse *> * _Nonnull reps) {
         if (success) { success(reps.firstObject); }
     } failure:failure];
 }
 
-- (HJHTTPTask *)enqueueGroup:(HJHTTPRequestGroup *)group
-                     success:(HJHTTPClientSuccessBlock)success
-                     failure:(HJHTTPClientFailureBlock)failure {
-    HJHTTPTask *httpTask = [HJHTTPTask new];
-    httpTask.state = HJHTTPTaskStateNotRunning;
+- (HJHttpTask *)enqueueGroup:(HJHttpRequestGroup *)group
+                     success:(HJHttpClientSuccessBlock)success
+                     failure:(HJHttpClientFailureBlock)failure {
+    HJHttpTask *httpTask = [HJHttpTask new];
+    httpTask.state = HJHttpTaskStateNotRunning;
     [self enqueueRequests:group.requests repArray:nil task:httpTask success:success failure:failure];
     [self.tasks addObject:httpTask];
     __weak typeof(self) weakSelf = self;
-    httpTask.removeFromContainerBlock = ^(HJHTTPTask * _Nonnull task) {
+    httpTask.removeFromContainerBlock = ^(HJHttpTask * _Nonnull task) {
         [weakSelf.tasks removeObject:task];
     };
     return httpTask;
@@ -89,16 +89,16 @@ NSErrorDomain const HJHTTPClientDomain = @"com.haijunwei.httpclient";
 /// 执行请求，组合响应值
 - (void)enqueueRequests:(NSArray *)reqArray
                        repArray:(NSMutableArray *)repArray
-                           task:(HJHTTPTask *)task
-                        success:(HJHTTPClientSuccessBlock)success
-                        failure:(HJHTTPClientFailureBlock)failure {
+                           task:(HJHttpTask *)task
+                        success:(HJHttpClientSuccessBlock)success
+                        failure:(HJHttpClientFailureBlock)failure {
     NSMutableArray *reqArrayM = [reqArray mutableCopy];
     NSMutableArray *subReqArray = [reqArrayM.firstObject mutableCopy];
     
     for (int i = 0; i < subReqArray.count; i++) {
         // 创建有依赖关系的请求
-        if (![subReqArray[i] isKindOfClass:[HJHTTPRequest class]]) {
-            HJHTTPRequestLazyAddBlock block = subReqArray[i];
+        if (![subReqArray[i] isKindOfClass:[HJHttpRequest class]]) {
+            HJHttpRequestLazyAddBlock block = subReqArray[i];
             subReqArray[i] = block(repArray);
         }
     }
@@ -115,21 +115,21 @@ NSErrorDomain const HJHTTPClientDomain = @"com.haijunwei.httpclient";
             [self enqueueRequests:reqArrayM repArray:resultReps task:weakTask success:success failure:failure];
             return;
         }
-        weakTask.state = HJHTTPTaskStateNotRunning;
+        weakTask.state = HJHttpTaskStateNotRunning;
         [weakTask removeFromContainer];
         if (success) { success(resultReps); }
     } failure:^(NSError * _Nonnull error) {
-        weakTask.state = HJHTTPTaskStateNotRunning;
+        weakTask.state = HJHttpTaskStateNotRunning;
         [weakTask removeFromContainer];
         if (failure) { failure(error); }
     }];
 }
 
 /// 执行请求集合
-- (void)enqueueRequests:(NSArray<HJHTTPRequest *> *)reqs
-               mainTask:(HJHTTPTask *)mainTask
-                success:(HJHTTPClientSuccessBlock)success
-                failure:(HJHTTPClientFailureBlock)failure {
+- (void)enqueueRequests:(NSArray<HJHttpRequest *> *)reqs
+               mainTask:(HJHttpTask *)mainTask
+                success:(HJHttpClientSuccessBlock)success
+                failure:(HJHttpClientFailureBlock)failure {
     NSMutableArray *repsArrayM = [NSMutableArray new];
     for (int i = 0; i < reqs.count; i++) {
         [repsArrayM addObject:[NSNull null]];
@@ -138,16 +138,16 @@ NSErrorDomain const HJHTTPClientDomain = @"com.haijunwei.httpclient";
     __block NSError *resultError = nil;
     dispatch_group_t group = dispatch_group_create();
     // 只有一个请求并且是上传文件，可获取进度
-    if (reqs.count == 1 && [(HJHTTPRequest *)reqs.firstObject files]) {
+    if (reqs.count == 1 && [(HJHttpRequest *)reqs.firstObject files]) {
         weakMainTask.progress = 0;
-        weakMainTask.state = HJHTTPTaskStateProgress;
+        weakMainTask.state = HJHttpTaskStateProgress;
     } else {
-        weakMainTask.state = HJHTTPTaskStateLoading;
+        weakMainTask.state = HJHttpTaskStateLoading;
     }
     for (int i = 0; i < reqs.count; i++) {
         dispatch_group_enter(group);
-        HJHTTPTask *task = [self enqueueRequest:reqs[i] uploadProgress:^(NSProgress *uploadProgress) {
-            if (weakMainTask.state == HJHTTPTaskStateProgress) {
+        HJHttpTask *task = [self enqueueRequest:reqs[i] uploadProgress:^(NSProgress *uploadProgress) {
+            if (weakMainTask.state == HJHttpTaskStateProgress) {
                 weakMainTask.progress = uploadProgress.fractionCompleted;
             }
         } success:^(id  _Nonnull rep) {
@@ -170,10 +170,10 @@ NSErrorDomain const HJHTTPClientDomain = @"com.haijunwei.httpclient";
 }
 
 /// 执行单个请求
-- (HJHTTPTask *)enqueueRequest:(HJHTTPRequest *)req
+- (HJHttpTask *)enqueueRequest:(HJHttpRequest *)req
                 uploadProgress:(void(^)(NSProgress *uploadProgress))uploadProgress
-                       success:(HJHTTPClientSuccessBlock)success
-                       failure:(HJHTTPClientFailureBlock)failure {
+                       success:(HJHttpClientSuccessBlock)success
+                       failure:(HJHttpClientFailureBlock)failure {
     [self willExecuteRequest:req];
     NSMutableURLRequest *urlRequest = [self createURLRequest:req];
     if ([self.delegate respondsToSelector:@selector(httpClient:prepareURLRequest:)]) {
@@ -203,13 +203,13 @@ NSErrorDomain const HJHTTPClientDomain = @"com.haijunwei.httpclient";
         }
     }];
     [task resume];
-    HJHTTPTask *httpTask = [HJHTTPTask new];
+    HJHttpTask *httpTask = [HJHttpTask new];
     [httpTask addSubtask:task];
     return httpTask;
 }
 
 /// 将要执行请求
-- (void)willExecuteRequest:(HJHTTPRequest *)req {
+- (void)willExecuteRequest:(HJHttpRequest *)req {
     if (self.isPrintLog) {
         HJNetWatingLog(@"%@，%@，%@", [self methodNameWithRequest:req], req.path, req.params ? : @"{\n}");
     }
@@ -221,7 +221,7 @@ NSErrorDomain const HJHTTPClientDomain = @"com.haijunwei.httpclient";
 }
 
 /// 请求成功回调
-- (void)request:(HJHTTPRequest *)req didSucess:(HJHTTPResponse *)rep {
+- (void)request:(HJHttpRequest *)req didSucess:(HJHttpResponse *)rep {
     if (self.isPrintLog) {
         HJNetSuccessLog(@"%@，%@，%@", [self methodNameWithRequest:req], req.path, rep.data);
     }
@@ -230,21 +230,21 @@ NSErrorDomain const HJHTTPClientDomain = @"com.haijunwei.httpclient";
 }
 
 /// 验证响应值
-- (NSError *)verifyResponse:(HJHTTPResponse *)rep forRequest:(HJHTTPRequest *)req {
+- (NSError *)verifyResponse:(HJHttpResponse *)rep forRequest:(HJHttpRequest *)req {
     NSString *errorMsg = nil;
     if ([self.delegate respondsToSelector:@selector(httpClient:verifyResponse:forRequest:)]) {
         errorMsg = [self.delegate httpClient:self verifyResponse:rep forRequest:req];
     }
     if (errorMsg) {
-        return [NSError errorWithDomain:HJHTTPClientDomain
-                                   code:HJHTTPClientErrorCodeVerifyFailure
+        return [NSError errorWithDomain:HJHttpClientDomain
+                                   code:HJHttpClientErrorCodeVerifyFailure
                                userInfo:@{NSLocalizedDescriptionKey:errorMsg}];
     }
     return nil;
 }
 
 /// 请求发生错误
-- (NSError *)request:(HJHTTPRequest *)req didError:(NSError *)error {
+- (NSError *)request:(HJHttpRequest *)req didError:(NSError *)error {
     if (self.isPrintLog) {
         HJNetErrorLog(@"%@, %@, %@", [self methodNameWithRequest:req], req.path, error.localizedDescription);
     }
@@ -258,23 +258,23 @@ NSErrorDomain const HJHTTPClientDomain = @"com.haijunwei.httpclient";
 #pragma mark - Helpers
 
 /// 创建请求
-- (NSMutableURLRequest *)createURLRequest:(HJHTTPRequest *)request {
+- (NSMutableURLRequest *)createURLRequest:(HJHttpRequest *)request {
     NSError *error;
     NSMutableURLRequest *urlRequest;
     NSString *method = [self methodNameWithRequest:request];
     NSString *urlString = [[NSURL URLWithString:request.path relativeToURL:self.baseURL] absoluteString];
     AFHTTPRequestSerializer *requestSerializer;
     switch (request.contentType) {
-        case HJHTTPContentTypeFormData:
+        case HJHttpContentTypeFormData:
             requestSerializer = self.httpRequestSerializer;
             break;
-        case HJHTTPContentTypeJSON:
+        case HJHttpContentTypeJSON:
             requestSerializer = self.jsonRequestSerializer;
             break;
     }
     if (request.files) {
         urlRequest = [requestSerializer multipartFormRequestWithMethod:method URLString:urlString parameters:request.params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-            for (HJHTTPRequestFormFile *file in request.files) {
+            for (HJHttpRequestFormFile *file in request.files) {
                 [formData appendPartWithFileData:file.data name:file.name fileName:file.fileName mimeType:file.mineType];
             }
         } error:&error];
@@ -291,12 +291,12 @@ NSErrorDomain const HJHTTPClientDomain = @"com.haijunwei.httpclient";
 }
 
 /// 获取指定Requet请求方式名称
-- (NSString *)methodNameWithRequest:(HJHTTPRequest *)request {
+- (NSString *)methodNameWithRequest:(HJHttpRequest *)request {
     switch (request.method) {
-        case HJHTTPMethodGET: return @"GET";
-        case HJHTTPMethodPOST: return @"POST";
-        case HJHTTPMethodPUT: return @"PUT";
-        case HJHTTPMethodDELETE: return @"DELETE";
+        case HJHttpMethodGET: return @"GET";
+        case HJHttpMethodPOST: return @"POST";
+        case HJHttpMethodPUT: return @"PUT";
+        case HJHttpMethodDELETE: return @"DELETE";
     }
 }
 

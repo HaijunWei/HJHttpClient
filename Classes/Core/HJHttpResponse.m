@@ -1,12 +1,12 @@
 //
-//  HJHTTPResponse.m
+//  HJHttpResponse.m
 //
 //  Created by Haijun on 2019/5/9.
 //
 
-#import "HJHTTPResponse.h"
+#import "HJHttpResponse.h"
 
-@implementation HJHTTPResponse
+@implementation HJHttpResponse
 
 - (instancetype)init {
     if (self = [super init]) {

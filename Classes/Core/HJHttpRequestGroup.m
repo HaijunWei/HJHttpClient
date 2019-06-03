@@ -1,23 +1,23 @@
 //
-//  HJHTTPRequestGroup.m
+//  HJHttpRequestGroup.m
 //
 //  Created by Haijun on 2019/5/9.
 //
 
-#import "HJHTTPRequestGroup.h"
+#import "HJHttpRequestGroup.h"
 
-@interface HJHTTPRequestGroup ()
+@interface HJHttpRequestGroup ()
 
 @property (nonatomic, strong) NSMutableArray *reqs;
 
 @end
 
-@implementation HJHTTPRequestGroup
+@implementation HJHttpRequestGroup
 
 #pragma mark - 便利方法
 
-+ (instancetype)group:(void(^)(HJHTTPRequestGroup *g))block {
-    HJHTTPRequestGroup *group = [HJHTTPRequestGroup new];
++ (instancetype)group:(void(^)(HJHttpRequestGroup *g))block {
+    HJHttpRequestGroup *group = [HJHttpRequestGroup new];
     block(group);
     return group;
 }
@@ -31,11 +31,11 @@
     return self;
 }
 
-- (void)add:(HJHTTPRequest *)req {
+- (void)add:(HJHttpRequest *)req {
     [self.reqs addObject:req];
 }
 
-- (void)lazyAdd:(HJHTTPRequestLazyAddBlock)block {
+- (void)lazyAdd:(HJHttpRequestLazyAddBlock)block {
     [self.reqs addObject:block];
 }
 
@@ -44,7 +44,7 @@
     NSMutableArray *subReqs = nil;
     // 将请求分组
     for (id api in self.reqs) {
-        if ([api isKindOfClass:[HJHTTPRequest class]]) {
+        if ([api isKindOfClass:[HJHttpRequest class]]) {
             if (subReqs == nil) {
                 subReqs = [NSMutableArray new];
                 [reqs addObject:subReqs];

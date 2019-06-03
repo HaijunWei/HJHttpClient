@@ -1,13 +1,13 @@
 //
-//  HJHTTPTask.m
+//  HJHttpTask.m
 //
 //  Created by Haijun on 2019/5/10.
 //
 
-#import "HJHTTPTask.h"
+#import "HJHttpTask.h"
 #import <objc/runtime.h>
 
-@interface _HJHTTPWeakContainer : NSObject
+@interface _HJHttpWeakContainer : NSObject
 
 @property (nonatomic, weak, readonly) id object;
 
@@ -15,7 +15,7 @@
 
 @end
 
-@implementation _HJHTTPWeakContainer
+@implementation _HJHttpWeakContainer
 
 - (instancetype)initWithObject:(id)object {
     if (self = [super init]) {
@@ -26,13 +26,13 @@
 
 @end
 
-@interface NSObject (HJHTTPTask)
+@interface NSObject (HJHttpTask)
 
 @property (nonatomic, strong) NSMutableArray *hj_httpTasks;
 
 @end
 
-@implementation NSObject (HJHTTPTask)
+@implementation NSObject (HJHttpTask)
 
 static char kHTTPTasks;
 
@@ -51,16 +51,16 @@ static char kHTTPTasks;
 
 @end
 
-@interface HJHTTPTask ()
+@interface HJHttpTask ()
 
-@property (nonatomic, assign, readwrite) HJHTTPTaskState state;
+@property (nonatomic, assign, readwrite) HJHttpTaskState state;
 @property (nonatomic, assign, readwrite) double progress;
 @property (nonatomic, strong) NSMutableArray *observers;
-@property (nonatomic, strong) NSMutableArray<id<HJHTTPTaskCancelable>> *tasks;
+@property (nonatomic, strong) NSMutableArray<id<HJHttpTaskCancelable>> *tasks;
 
 @end
 
-@implementation HJHTTPTask
+@implementation HJHttpTask
 
 #pragma mark - Public
 
@@ -68,16 +68,16 @@ static char kHTTPTasks;
     [self removeFromContainer];
     [object.hj_httpTasks addObject:self];
     __weak typeof(object) weakObject = object;
-    self.removeFromContainerBlock = ^(HJHTTPTask * _Nonnull task) {
+    self.removeFromContainerBlock = ^(HJHttpTask * _Nonnull task) {
         [weakObject.hj_httpTasks removeObject:task];
     };
 }
 
 - (void)cancel {
-    for (id<HJHTTPTaskCancelable> task in self.tasks) {
+    for (id<HJHttpTaskCancelable> task in self.tasks) {
         [task cancel];
     }
-    self.state = HJHTTPTaskStateNotRunning;
+    self.state = HJHttpTaskStateNotRunning;
 }
 
 - (void)removeFromContainer {
@@ -88,23 +88,23 @@ static char kHTTPTasks;
 
 #pragma mark - SubTask
 
-- (void)addSubtask:(id<HJHTTPTaskCancelable>)task {
+- (void)addSubtask:(id<HJHttpTaskCancelable>)task {
     [self.tasks addObject:task];
 }
 
-- (void)removeSubtask:(id<HJHTTPTaskCancelable>)task {
+- (void)removeSubtask:(id<HJHttpTaskCancelable>)task {
     [self.tasks removeObject:task];
 }
 
 #pragma mark - Observer
 
-- (void)addObserver:(id<HJHTTPTaskObserver>)observer {
+- (void)addObserver:(id<HJHttpTaskObserver>)observer {
     [self addObserver:observer isWeakify:YES];
 }
 
-- (void)addObserver:(id<HJHTTPTaskObserver>)observer isWeakify:(BOOL)isWeakify {
+- (void)addObserver:(id<HJHttpTaskObserver>)observer isWeakify:(BOOL)isWeakify {
     if (isWeakify) {
-        _HJHTTPWeakContainer *weakContainer = [[_HJHTTPWeakContainer alloc] initWithObject:observer];
+        _HJHttpWeakContainer *weakContainer = [[_HJHttpWeakContainer alloc] initWithObject:observer];
         [self.observers addObject:weakContainer];
     } else {
         [self.observers addObject:observer];
@@ -112,10 +112,10 @@ static char kHTTPTasks;
     [observer taskDidUpdateState:self.state progress:self.progress];
 }
 
-- (void)removeObserver:(id<HJHTTPTaskObserver>)observer {
+- (void)removeObserver:(id<HJHttpTaskObserver>)observer {
     [self.observers enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj isKindOfClass:[_HJHTTPWeakContainer class]]) {
-            _HJHTTPWeakContainer *weakContainer = obj;
+        if ([obj isKindOfClass:[_HJHttpWeakContainer class]]) {
+            _HJHttpWeakContainer *weakContainer = obj;
             if (weakContainer.object == observer) { [self.observers removeObject:obj]; }
         } else {
             if (obj == observer) { [self.observers removeObject:obj]; }
@@ -125,11 +125,11 @@ static char kHTTPTasks;
 
 - (void)noticeObservers {
     for (id obj in self.observers) {
-        if ([obj isKindOfClass:[_HJHTTPWeakContainer class]]) {
-            _HJHTTPWeakContainer *weakContainer = obj;
-            [(id<HJHTTPTaskObserver>)(weakContainer.object) taskDidUpdateState:self.state progress:self.progress];
+        if ([obj isKindOfClass:[_HJHttpWeakContainer class]]) {
+            _HJHttpWeakContainer *weakContainer = obj;
+            [(id<HJHttpTaskObserver>)(weakContainer.object) taskDidUpdateState:self.state progress:self.progress];
         } else {
-            [(id<HJHTTPTaskObserver>)obj taskDidUpdateState:self.state progress:self.progress];
+            [(id<HJHttpTaskObserver>)obj taskDidUpdateState:self.state progress:self.progress];
         }
     }
 }
@@ -150,7 +150,7 @@ static char kHTTPTasks;
 
 #pragma mark - Setter
 
-- (void)setState:(HJHTTPTaskState)state {
+- (void)setState:(HJHttpTaskState)state {
     _state = state;
     [self noticeObservers];
 }

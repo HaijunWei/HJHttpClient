@@ -1,21 +1,21 @@
 //
-//  HJHTTPActivityIndicator.h
+//  HJHttpActivityIndicator.h
 //
 //  Created by Haijun on 2019/5/10.
 //
 
 #import <UIKit/UIKit.h>
-#import "HJHTTPTask.h"
+#import "HJHttpTask.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HJHTTPActivityIndicator : NSObject <HJHTTPTaskObserver>
+@interface HJHttpActivityIndicator : NSObject <HJHttpTaskObserver>
 
 @property (nonatomic, weak) UIView *hudView;
 
 @end
 
-@interface HJHTTPTask (HJIndicator)
+@interface HJHttpTask (HJIndicator)
 
 /// 在指定view上显示hud
 - (void)attachHUDTo:(UIView *)view;

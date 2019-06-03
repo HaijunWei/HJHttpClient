@@ -1,32 +1,32 @@
 //
-//  HJHTTPActivityIndicator.m
+//  HJHttpActivityIndicator.m
 //
 //  Created by Haijun on 2019/5/10.
 //
 
-#import "HJHTTPActivityIndicator.h"
+#import "HJHttpActivityIndicator.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 
-@interface HJHTTPActivityIndicator ()
+@interface HJHttpActivityIndicator ()
 
 @property (nonatomic, strong) MBProgressHUD *hud;
 
 @end
 
-@implementation HJHTTPActivityIndicator
+@implementation HJHttpActivityIndicator
 
-#pragma mark - HJHTTPTaskObserver
+#pragma mark - HJHttpTaskObserver
 
-- (void)taskDidUpdateState:(HJHTTPTaskState)state progress:(double)progress {
+- (void)taskDidUpdateState:(HJHttpTaskState)state progress:(double)progress {
     dispatch_async(dispatch_get_main_queue(), ^{
         switch (state) {
-            case HJHTTPTaskStateNotRunning:
+            case HJHttpTaskStateNotRunning:
                 [self.hud hideAnimated:YES];
                 break;
-            case HJHTTPTaskStateLoading:
+            case HJHttpTaskStateLoading:
                 self.hud.mode = MBProgressHUDModeIndeterminate;
                 break;
-            case HJHTTPTaskStateProgress:
+            case HJHttpTaskStateProgress:
                 self.hud.mode = MBProgressHUDModeDeterminate;
                 self.hud.progress = progress;
                 self.hud.detailsLabel.text = @"上传中...";
@@ -49,11 +49,11 @@
 
 @end
 
-@implementation HJHTTPTask (HJIndicator)
+@implementation HJHttpTask (HJIndicator)
 
 - (void)attachHUDTo:(UIView *)view {
     if (!view) { return; }
-    HJHTTPActivityIndicator *indicator = [HJHTTPActivityIndicator new];
+    HJHttpActivityIndicator *indicator = [HJHttpActivityIndicator new];
     indicator.hudView = view;
     [self addObserver:indicator isWeakify:NO];
 }
