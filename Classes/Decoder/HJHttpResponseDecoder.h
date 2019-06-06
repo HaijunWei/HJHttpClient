@@ -32,11 +32,17 @@ extern HJHttpResponseKey const HJHttpResponseMessageKey;
 /// 响应对象键值映射，@{HJHttpResponseKey:xxx}
 @property (nonatomic, strong) NSDictionary *responseKeyMapping;
 
+#pragma mark - Public
+
+/// 将要解析返回数据，如果有附加的解析步骤在此方法操作
+/// @param responseObject 响应数据对象
+- (id)willGenerateResponse:(id)responseObject;
+
 #pragma mark - Helpers
 
 /**
  反序列化数据
-
+ 
  @param cls object类型
  @param path 解析路径
  @param data 待处理数据

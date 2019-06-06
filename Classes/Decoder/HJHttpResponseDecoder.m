@@ -29,16 +29,17 @@ HJHttpResponseKey const HJHttpResponseMessageKey = @"message";
         return error;
     }
     NSError *resultError;
-    HJHttpResponse *httpResponse = [self createResponse:req responseData:responseData error:&resultError];
+    HJHttpResponse *httpResponse = [self generateResponse:req responseData:responseData error:&resultError];
     httpResponse.allHeaderFields = response.allHeaderFields;
     if (resultError) { return resultError; }
     return httpResponse;
 }
 
 /// 创建请求响应
-- (HJHttpResponse *)createResponse:(HJHttpRequest *)request responseData:(id)responseData error:(NSError **)error {
+- (HJHttpResponse *)generateResponse:(HJHttpRequest *)request responseData:(id)responseData error:(NSError **)error {
     HJHttpResponse *response = [HJHttpResponse new];
     id jsonObject = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil];
+    jsonObject = [self willGenerateResponse:jsonObject];
     response.code = HJHttpResponseCodeNormal;
     response.data = jsonObject;
     response.rawData = responseData;
@@ -65,6 +66,12 @@ HJHttpResponseKey const HJHttpResponseMessageKey = @"message";
                                                deserializationPath:request.deserializationPath
                                                               data:response.data];
     return response;
+}
+
+#pragma mark - Public
+
+- (id)willGenerateResponse:(id)responseObject {
+    return responseObject;
 }
 
 #pragma mark - Helpers
