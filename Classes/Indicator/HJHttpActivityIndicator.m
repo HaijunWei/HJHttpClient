@@ -5,7 +5,6 @@
 //
 
 #import "HJHttpActivityIndicator.h"
-#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface HJHttpActivityIndicator ()
 
@@ -14,6 +13,18 @@
 @end
 
 @implementation HJHttpActivityIndicator
+
+#pragma mark - Class Property
+
+static HJHttpActivityConfigHUDBlock _configHUDBlock = nil;
+
++ (void)setConfigHUDBlock:(HJHttpActivityConfigHUDBlock)configHUDBlock {
+    _configHUDBlock = configHUDBlock;
+}
+
++ (HJHttpActivityConfigHUDBlock)configHUDBlock {
+    return _configHUDBlock;
+}
 
 #pragma mark - HJHttpTaskObserver
 
@@ -43,6 +54,7 @@
         _hud.removeFromSuperViewOnHide = YES;
         [self.hudView addSubview:_hud];
         [self.hud showAnimated:YES];
+        if (_configHUDBlock) { _configHUDBlock(_hud); }
     }
     return _hud;
 }
