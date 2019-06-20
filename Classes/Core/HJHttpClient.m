@@ -225,20 +225,20 @@ NSErrorDomain const HJHttpClientDomain = @"com.haijunwei.httpclient";
     if (self.isPrintLog) {
         HJNetSuccessLog(@"%@，%@，%@", [self methodNameWithRequest:req], req.path, rep.data);
     }
-    
-    
 }
 
 /// 验证响应值
 - (NSError *)verifyResponse:(HJHttpResponse *)rep forRequest:(HJHttpRequest *)req {
-    NSString *errorMsg = nil;
+    id error;
     if ([self.delegate respondsToSelector:@selector(httpClient:verifyResponse:forRequest:)]) {
-        errorMsg = [self.delegate httpClient:self verifyResponse:rep forRequest:req];
+        error = [self.delegate httpClient:self verifyResponse:rep forRequest:req];
     }
-    if (errorMsg) {
+    if ([error isKindOfClass:[NSError class]]) {
+        return error;
+    } else if ([error isKindOfClass:[NSString class]]) {
         return [NSError errorWithDomain:HJHttpClientDomain
                                    code:HJHttpClientErrorCodeVerifyFailure
-                               userInfo:@{NSLocalizedDescriptionKey:errorMsg}];
+                               userInfo:@{NSLocalizedDescriptionKey:error}];
     }
     return nil;
 }

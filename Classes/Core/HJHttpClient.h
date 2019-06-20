@@ -32,8 +32,8 @@ typedef NS_ENUM(NSInteger, HJHttpClientErrorCode) {
 - (HJHttpRequest *)httpClient:(HJHttpClient *)client prepareRequest:(HJHttpRequest *)request;
 /// 执行请求之前调用，可在此方法中给请求头附加参数
 - (NSMutableURLRequest *)httpClient:(HJHttpClient *)client prepareURLRequest:(NSMutableURLRequest *)request;
-/// 检验响应数据，如果未通过返回错误信息描述，否则返回nil
-- (NSString *)httpClient:(HJHttpClient *)client verifyResponse:(HJHttpResponse *)response forRequest:(HJHttpRequest *)request;
+/// 检验响应数据，如果未通过返回错误信息描述（NSError 或者 NSString），通过返回nil
+- (id)httpClient:(HJHttpClient *)client verifyResponse:(HJHttpResponse *)response forRequest:(HJHttpRequest *)request;
 /// 请求发生错误，可自定义错误信息
 - (NSError *)httpClient:(HJHttpClient *)client request:(HJHttpRequest *)request didReceiveError:(NSError *)error;
 
