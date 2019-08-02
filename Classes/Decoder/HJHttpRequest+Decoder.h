@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) Class responseDataCls;
 /// 从指定路径开始反序列化（xxx.xxx）
 @property (nonatomic, strong) NSString *deserializationPath;
+/// 对获取到的数据加工处理
+@property (nonatomic, strong) id(^reformBlock)(id responseObject);
 
 + (instancetype)GET:(NSString *)path responseDataCls:(Class _Nullable)responseDataCls;
 + (instancetype)GET:(NSString *)path deserializationPath:(NSString *)deserializationPath responseDataCls:(Class)responseDataCls;

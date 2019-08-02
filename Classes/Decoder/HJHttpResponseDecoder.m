@@ -43,7 +43,6 @@ HJHttpResponseKey const HJHttpResponseMessageKey = @"message";
     response.code = HJHttpResponseCodeNormal;
     response.data = jsonObject;
     response.rawData = responseData;
-    
     // 解析{data: messsage: code:}类数据
     BOOL isNeedResponseKeyMapping = self.responseKeyMapping != nil;
     if (isNeedResponseKeyMapping && jsonObject && [jsonObject isKindOfClass:[NSDictionary class]]) {
@@ -56,15 +55,15 @@ HJHttpResponseKey const HJHttpResponseMessageKey = @"message";
     }
     
     BOOL isJSON = [response.data isKindOfClass:[NSArray class]] || [response.data isKindOfClass:[NSDictionary class]];
-    if (!response.data || (!isJSON && request.responseDataCls != NULL)) {
-        *error = [NSError errorWithDomain:HJHttpResponseDecoderDomain
-                                     code:HJHttpResponseCodeDecoderFailure
-                                 userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"服务器响应数据与预期不符\n%@", response.data]}];
-        return nil;
+    if (response.data && isJSON && request.responseDataCls != NULL) {
+        // 有加工数据需求，先加工
+        if (request.reformBlock) {
+            response.data = request.reformBlock(response.data);
+        }
+        response.dataObject = [self deserializationWithResponseDataCls:request.responseDataCls
+                                                   deserializationPath:request.deserializationPath
+                                                                  data:response.data];
     }
-    response.dataObject = [self deserializationWithResponseDataCls:request.responseDataCls
-                                               deserializationPath:request.deserializationPath
-                                                              data:response.data];
     return response;
 }
 
@@ -87,9 +86,10 @@ HJHttpResponseKey const HJHttpResponseMessageKey = @"message";
     }
     if ([data isKindOfClass:[NSArray class]]) {
         return [cls mj_objectArrayWithKeyValuesArray:data];
-    } else {
+    } else if ([data isKindOfClass:[NSDictionary class]]){
         return [cls mj_objectWithKeyValues:data];
     }
+    return nil;
 }
 
 @end

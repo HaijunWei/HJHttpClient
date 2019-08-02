@@ -8,6 +8,7 @@
 
 static NSString * const kResponseDataCls = @"responseDataCls";
 static NSString * const kDeserializationPath = @"deserializationPath";
+static NSString * const kReformBlock = @"reformBlock";
 
 @implementation HJHttpRequest (Decoder)
 
@@ -66,6 +67,14 @@ static NSString * const kDeserializationPath = @"deserializationPath";
 
 - (NSString *)deserializationPath {
     return self.userInfo[kDeserializationPath];
+}
+
+- (void)setReformBlock:(id  _Nonnull (^)(id _Nonnull))reformBlock {
+    self.userInfo[kReformBlock] = reformBlock;
+}
+
+- (id  _Nonnull (^)(id _Nonnull))reformBlock {
+    return self.userInfo[kReformBlock];
 }
 
 @end
