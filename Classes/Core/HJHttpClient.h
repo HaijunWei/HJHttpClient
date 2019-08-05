@@ -46,6 +46,8 @@ typedef NS_ENUM(NSInteger, HJHttpClientErrorCode) {
 @property (nonatomic, weak) id<HJHttpClientDelegate> delegate;
 /// 是否打印日志，默认 = YES
 @property (nonatomic, assign) BOOL isPrintLog;
+/// 在错误的时候是否打印响应值，默认 = YES
+@property (nonatomic, assign) BOOL isPrintResponseOnError;
 /// BaseURL
 @property (nonatomic, strong) NSURL *baseURL;
 /// 请求超时时间，默认 = 15s
@@ -56,15 +58,15 @@ typedef NS_ENUM(NSInteger, HJHttpClientErrorCode) {
 + (HJHttpTask *)enqueue:(HJHttpRequest *)req
                 success:(HJHttpClientSingleSuccessBlock)success
                 failure:(HJHttpClientFailureBlock)failure;
-    
+
 + (HJHttpTask *)enqueueGroup:(HJHttpRequestGroup *)group
                      success:(HJHttpClientSuccessBlock)success
                      failure:(HJHttpClientFailureBlock)failure;
-    
+
 - (HJHttpTask *)enqueue:(HJHttpRequest *)req
                 success:(HJHttpClientSingleSuccessBlock)success
                 failure:(HJHttpClientFailureBlock)failure;
-    
+
 - (HJHttpTask *)enqueueGroup:(HJHttpRequestGroup *)group
                      success:(HJHttpClientSuccessBlock)success
                      failure:(HJHttpClientFailureBlock)failure;

@@ -10,16 +10,16 @@
 #import <AFNetworking/AFNetworking.h>
 
 #define HJNetWatingLog(FORMAT, ...) \
-    printf("--------------------------------------\n☕️ %s\n\n",    \
-    [[NSString stringWithFormat:(FORMAT), ##__VA_ARGS__] UTF8String]);
+printf("--------------------------------------\n☕️ %s\n\n",    \
+[[NSString stringWithFormat:(FORMAT), ##__VA_ARGS__] UTF8String]);
 
 #define HJNetSuccessLog(FORMAT, ...) \
-    printf("--------------------------------------\n🎉 %s\n\n",    \
-    [[NSString stringWithFormat:(FORMAT), ##__VA_ARGS__] UTF8String]);
+printf("--------------------------------------\n🎉 %s\n\n",    \
+[[NSString stringWithFormat:(FORMAT), ##__VA_ARGS__] UTF8String]);
 
 #define HJNetErrorLog(FORMAT, ...) \
-    printf("--------------------------------------\n❌ %s\n\n",    \
-    [[NSString stringWithFormat:(FORMAT), ##__VA_ARGS__] UTF8String]);
+printf("--------------------------------------\n❌ %s\n\n",    \
+[[NSString stringWithFormat:(FORMAT), ##__VA_ARGS__] UTF8String]);
 
 NSErrorDomain const HJHttpClientDomain = @"com.haijunwei.httpclient";
 
@@ -81,17 +81,17 @@ NSErrorDomain const HJHttpClientDomain = @"com.haijunwei.httpclient";
         [weakSelf.tasks removeObject:task];
     };
     return httpTask;
-
+    
 }
 
 #pragma mark - 核心方法
 
 /// 执行请求，组合响应值
 - (void)enqueueRequests:(NSArray *)reqArray
-                       repArray:(NSMutableArray *)repArray
-                           task:(HJHttpTask *)task
-                        success:(HJHttpClientSuccessBlock)success
-                        failure:(HJHttpClientFailureBlock)failure {
+               repArray:(NSMutableArray *)repArray
+                   task:(HJHttpTask *)task
+                success:(HJHttpClientSuccessBlock)success
+                failure:(HJHttpClientFailureBlock)failure {
     NSMutableArray *reqArrayM = [reqArray mutableCopy];
     NSMutableArray *subReqArray = [reqArrayM.firstObject mutableCopy];
     
@@ -233,14 +233,15 @@ NSErrorDomain const HJHttpClientDomain = @"com.haijunwei.httpclient";
     if ([self.delegate respondsToSelector:@selector(httpClient:verifyResponse:forRequest:)]) {
         error = [self.delegate httpClient:self verifyResponse:rep forRequest:req];
     }
-    if ([error isKindOfClass:[NSError class]]) {
-        return error;
-    } else if ([error isKindOfClass:[NSString class]]) {
-        return [NSError errorWithDomain:HJHttpClientDomain
-                                   code:HJHttpClientErrorCodeVerifyFailure
-                               userInfo:@{NSLocalizedDescriptionKey:error}];
+    if ([error isKindOfClass:[NSString class]]) {
+        error = [NSError errorWithDomain:HJHttpClientDomain
+                                    code:HJHttpClientErrorCodeVerifyFailure
+                                userInfo:@{NSLocalizedDescriptionKey:error}];
     }
-    return nil;
+    if (error && self.isPrintResponseOnError && self.isPrintLog) {
+        HJNetErrorLog(@"%@, %@, %@", [self methodNameWithRequest:req], req.path, [[NSString alloc] initWithData:rep.rawData encoding:NSUTF8StringEncoding]);
+    }
+    return error;
 }
 
 /// 请求发生错误
@@ -305,6 +306,7 @@ NSErrorDomain const HJHttpClientDomain = @"com.haijunwei.httpclient";
 - (instancetype)init {
     if (self = [super init]) {
         _isPrintLog = YES;
+        _isPrintResponseOnError = YES;
         _timeoutInterval = 15;
         _tasks = [NSMutableArray new];
         _httpManager = [AFHTTPSessionManager manager];
