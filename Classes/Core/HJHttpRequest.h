@@ -35,6 +35,8 @@ typedef NS_ENUM(NSInteger, HJHttpContentType) {
 @property (nonatomic, strong) id params;
 /// 上传的文件
 @property (nonatomic, strong) NSArray<HJHttpRequestFormFile *> *files;
+/// 附加请求头
+@property (nonatomic, strong) NSDictionary *headerField;
 /// 附加参数，用于支持扩展功能
 @property (nonatomic, strong) NSMutableDictionary *userInfo;
 
