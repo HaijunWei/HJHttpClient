@@ -288,9 +288,9 @@ NSErrorDomain const HJHttpClientDomain = @"com.haijunwei.httpclient";
     } else {
         urlRequest.timeoutInterval = self.timeoutInterval;
     }
-    if (request.headerField) {
-        [request.headerField.allKeys enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            [urlRequest setValue:request.headerField[obj] forHTTPHeaderField:obj];
+    if (request.headerFields) {
+        [request.headerFields.allKeys enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [urlRequest setValue:request.headerFields[obj] forHTTPHeaderField:obj];
         }];
     }
     return urlRequest;
