@@ -235,7 +235,7 @@ NSErrorDomain const HJHttpClientDomain = @"com.haijunwei.httpclient";
     }
     if ([error isKindOfClass:[NSString class]]) {
         error = [NSError errorWithDomain:HJHttpClientDomain
-                                    code:HJHttpClientErrorCodeVerifyFailure
+                                    code:rep.code
                                 userInfo:@{NSLocalizedDescriptionKey:error}];
     }
     if (error && self.isPrintResponseOnError && self.isPrintLog) {
