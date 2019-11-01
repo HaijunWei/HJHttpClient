@@ -22,6 +22,16 @@ NS_ASSUME_NONNULL_BEGIN
                      success:(HJHttpClientSuccessBlock)success
                      failure:(HJHttpClientFailureBlock)failure;
 
+- (HJHttpTask *)enqueue:(HJHttpRequest *)req
+                hudView:(UIView * _Nullable)hudView
+                success:(HJHttpClientSingleSuccessBlock)success
+                failure:(HJHttpClientFailureBlock)failure;
+
+- (HJHttpTask *)enqueueGroup:(HJHttpRequestGroup *)group
+                     hudView:(UIView * _Nullable)hudView
+                     success:(HJHttpClientSuccessBlock)success
+                     failure:(HJHttpClientFailureBlock)failure;
+
 @end
 
 NS_ASSUME_NONNULL_END

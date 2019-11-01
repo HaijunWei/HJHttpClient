@@ -26,4 +26,22 @@
     return task;
 }
 
+- (HJHttpTask *)enqueue:(HJHttpRequest *)req
+                hudView:(UIView * _Nullable)hudView
+                success:(HJHttpClientSingleSuccessBlock)success
+                failure:(HJHttpClientFailureBlock)failure {
+    HJHttpTask *task = [self enqueue:req success:success failure:failure];
+    [task attachTo:hudView];
+    return task;
+}
+
+- (HJHttpTask *)enqueueGroup:(HJHttpRequestGroup *)group
+                     hudView:(UIView * _Nullable)hudView
+                     success:(HJHttpClientSuccessBlock)success
+                     failure:(HJHttpClientFailureBlock)failure {
+    HJHttpTask *task = [self enqueueGroup:group success:success failure:failure];
+    [task attachHUDTo:hudView];
+    return task;
+}
+
 @end
